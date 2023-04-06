@@ -12,7 +12,7 @@ export const description_data = [{
     QtyOfSalesOrder: 401,
     QtyOutToday: 100,
     ProductionShapingToday:'',
-    ProductionShapingAccumulation: 301,
+    // ProductionShapingAccumulation: 301,
     ProductionShapingDeficit: 100, 
     IncomingMaterialToday:'',
     IncomingMaterialAccumulation: 301,
@@ -378,6 +378,10 @@ export const columns_data = [
         dataType: "number",
     },{
         dataField: "ProductionShapingAccumulation",
+        calculateCellValue: function(rowData) {
+            console.log(rowData)
+            return rowData.QtyOfSalesOrder - rowData.QtyOutToday;
+        },
         caption: "Lũy kế sản xuất",
         dataType: "number",
     },{
@@ -654,14 +658,16 @@ export const summary_data = [
 }];
 
 export const accumulationList = [
-    "ProductionShapingAccumulation",
-    "IncomingMaterialAccumulation",
-    "StampingCuttingAccumulation",
-    "CheckFirstAccumulation",
-    "CheckSecondAccumulation",
-    "PackageAccumulation",
-    "TestAccumulation",
-    "CompleteAccumulation",
+    // "ProductionShapingAccumulation",
+    // "IncomingMaterialAccumulation",
+    // "StampingCuttingAccumulation",
+    // "CheckFirstAccumulation",
+    // "CheckSecondAccumulation",
+    // "PackageAccumulation",
+    // "TestAccumulation",
+    // "CompleteAccumulation",
+    "Lũy kế sản xuất",
+    "Lũy kế",
 ];
 
   

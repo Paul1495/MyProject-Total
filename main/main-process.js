@@ -43,7 +43,7 @@ const onCellPrepared = function (e) {
         return;
     } 
     
-    if (e.rowType === "data" && accumulationList.includes(e.column.dataField) ) {
+    if (e.rowType === "data" && accumulationList.includes(e.column.caption) ) {
         e.cellElement.css({'background':'yellow'});
         return;
     }
@@ -55,4 +55,5 @@ const onCellPrepared = function (e) {
     };
 
 grid.option('onCellPrepared', onCellPrepared);
+
 
