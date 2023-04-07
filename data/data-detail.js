@@ -69,7 +69,7 @@ export const columns_data = [
 },{
     dataField: "ColorNo",
     caption: "Color",
-    width: 120,
+    width: 80,
 },{
     dataField: "ColorName",
     caption: "颜色 Color",
