@@ -22,7 +22,7 @@ const form = $('#form').dxForm({
             itemType: 'group',
             visible: false,
             name: 'Dimensional',
-            caption: 'DIMENSIONAL STABILITY TO WASHING',
+            caption: '1. DIMENSIONAL STABILITY TO WASHING',
             colCount: 2,
             items: [
                 {
@@ -105,7 +105,7 @@ const form = $('#form').dxForm({
                 itemType: 'group',
                 visible: false,
                 name: 'Fabric',
-                caption: 'FABRIC WEIGHT',
+                caption: '2. FABRIC WEIGHT',
                 colCount: 2,
                 items: [
                 {
@@ -150,7 +150,7 @@ const form = $('#form').dxForm({
                 itemType: 'group',
                 visible: false,
                 name: 'Stretch',
-                caption: 'STRETCH, MODULUS AND RECOVERY OF STRETCH FABRICS',
+                caption: '3. STRETCH, MODULUS AND RECOVERY OF STRETCH FABRICS',
                 items: [
                 {
                     dataField: 'Stretch.Information',
@@ -234,7 +234,7 @@ const form = $('#form').dxForm({
                 itemType: 'group',
                 visible: false,
                 name: 'Peeling',
-                caption: 'PEELING STRENGTH TEST',
+                caption: '4. PEELING STRENGTH TEST',
                 items: [
                 {
                     dataField: 'Peeling.Information',
@@ -283,7 +283,7 @@ const form = $('#form').dxForm({
                 itemType: 'group',
                 visible: false,
                 name: 'PH',
-                caption: 'pH IN VALUE',
+                caption: '5. pH IN VALUE',
                 colCount: 3,
                 items: [
                 {
@@ -321,7 +321,7 @@ const form = $('#form').dxForm({
                 itemType: 'group',
                 visible: false,
                 name: 'Washing',
-                caption: 'COLORFASTNESS TO WASHING',
+                caption: '6. COLORFASTNESS TO WASHING',
                 items: [
                 {
                     dataField: 'ColorWashing.Information',
@@ -410,7 +410,7 @@ const form = $('#form').dxForm({
                 itemType: 'group',
                 visible: false,
                 name: 'Perspiration',
-                caption: 'COLORFASTNESS TO PERSPIRATION',
+                caption: '7. COLORFASTNESS TO PERSPIRATION',
                 items: [
                 {
                     dataField: 'ColorPerspiration.TestReport',
@@ -561,7 +561,7 @@ const form = $('#form').dxForm({
                 itemType: 'group',
                 visible: false,
                 name: 'Water',
-                caption: 'COLORFASTNESS TO WATER',
+                caption: '8. COLORFASTNESS TO WATER',
                 items: [
                 {
                     dataField: 'ColorWater.Information',
@@ -572,12 +572,6 @@ const form = $('#form').dxForm({
                 },{
                     dataField: 'ColorWater.RequirementColor',
                     label: {text:'Require Color'}
-                },{
-                    dataField: 'ColorWater.SolutionStain',
-                    label: {text:'Solution Staining'}
-                },{
-                    dataField: 'ColorWater.RequirementSolution',
-                    label: {text:'Require Solution'}
                 },{
                     itemType: 'group',
                     caption: 'Color Stain On',
@@ -649,7 +643,7 @@ const form = $('#form').dxForm({
                 itemType: 'group',
                 visible: false,
                 name: 'Crocking',
-                caption: 'COLORFASTNESS TO CROCKING',
+                caption: '9. COLORFASTNESS TO CROCKING',
                 colCount: 2,
                 items: [
                     {
@@ -698,7 +692,7 @@ const form = $('#form').dxForm({
                 itemType: 'group',
                 visible: false,
                 name: 'Oven',
-                caption: 'COLOR MIGRATION OVEN TEST',
+                caption: '10. COLOR MIGRATION OVEN TEST',
                 items: [
                     {
                         dataField: 'OvenTest.Information',
@@ -709,12 +703,6 @@ const form = $('#form').dxForm({
                     },{
                         dataField: 'OvenTest.RequirementColor',
                         label: {text:'Require Color'}
-                    },{
-                        dataField: 'OvenTest.SolutionStain',
-                        label: {text:'Solution Staining'}
-                    },{
-                        dataField: 'OvenTest.RequirementSolution',
-                        label: {text:'Require Solution'}
                     },{
                         itemType: 'group',
                         caption: 'Color Stain On',
