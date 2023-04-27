@@ -26,11 +26,9 @@ const form = $('#form').dxForm({
             colCount: 2,
             items: [
                 {
-                    dataField:'Dimensional.TestReport',
-                    label: {text:'TestReport'}
-                },{
-                    dataField:'Dimensional.Number',
-                    label: {text:'Number'}
+                    dataField:'Dimensional.Information',
+                    label: {text:'Information'},
+                    colSpan: 2,
                 },{
                 itemType: 'tabbed',
                 tabPanelOptions: {
@@ -51,8 +49,8 @@ const form = $('#form').dxForm({
                         dataField: 'Dimensional.WarpLength.Change',
                         label: {text:'Dimensional change(%)'}
                     },{
-                        dataField: 'Dimensional.WarpLength.Requirment',
-                        label: {text:'Requirment'}
+                        dataField: 'Dimensional.WarpLength.Requirement',
+                        label: {text:'Requirement'}
                     },{
                         dataField: 'Dimensional.WarpLength.Remark',
                         label: {text:'Remark'},
@@ -72,8 +70,8 @@ const form = $('#form').dxForm({
                             dataField: 'Dimensional.WeftLength.Change',
                             label: {text:'Dimensional change(%)'}
                         },{
-                            dataField: 'Dimensional.WeftLength.Requirment',
-                            label: {text:'Requirment'}
+                            dataField: 'Dimensional.WeftLength.Requirement',
+                            label: {text:'Requirement'}
                         },{
                             dataField: 'Dimensional.WeftLength.Remark',
                             label: {text:'Remark'},
@@ -116,13 +114,13 @@ const form = $('#form').dxForm({
                     dataField: 'Fabric.OZ',
                     label: {text:'OZ/SQ YD'}   ,       
                 },{
-                    dataField: 'Fabric.RequiremnetOZ',
+                    dataField: 'Fabric.RequirementOZ',
                     label: {text:'Requirement(oz/yd2)'}   ,     
                 },{
                     dataField: 'Fabric.G',
                     label: {text:'G/SQ M'}   ,      
                 },{
-                    dataField: 'Fabric.RequiremnetG',
+                    dataField: 'Fabric.RequirementG',
                     label: {text:'Requirement(G/M2)'}   ,         
                 }
                 ],
@@ -413,12 +411,6 @@ const form = $('#form').dxForm({
                 caption: '7. COLORFASTNESS TO PERSPIRATION',
                 items: [
                 {
-                    dataField: 'ColorPerspiration.TestReport',
-                    label: {text:'TEST REPORT'}
-                },{
-                    dataField: 'ColorPerspiration.Number',
-                    label: {text:'NUMBER'}
-                },{
                     itemType: 'tabbed',
                     tabPanelOptions: {
                         deferRendering: false,
