@@ -10,7 +10,7 @@ import {
     W618List,
     DTSW1List,
 
-} from '../data/data-detail.js';
+} from '../data/data_STT01.js';
 
 const grid = $('#grid').dxDataGrid({
     dataSource: combined_data,

@@ -3,7 +3,7 @@ import {
     description_data,
     columns_data,
     summary_data,
-} from '../data/data-description.js';
+} from '../data/data_STT520A.js';
 
 var grid = $('#grid').dxDataGrid({
     dataSource: description_data,

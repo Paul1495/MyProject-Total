@@ -155,7 +155,7 @@ const setupFoamTable = [
 
 
 const grid = $('#grid').dxDataGrid({
-    dataSource: data,
+    dataSource: [],
     columns: [
         ...columns_data,
         ...setupAllTable.map(x => x.column),
@@ -185,19 +185,6 @@ const onRowPrepared = function (e) {
 
 };
 grid.option('onRowPrepared', onRowPrepared);
-
-// Set up color
-// const COLOR_RED = "#ff0000";
-// const COLOR_YELLOW = "#ffff00";
-// const COLOR_DCUT = "#a9d08e";
-// const COLOR_DPMT = "#ffe699";
-// const COLOR_DMOD = "#8ea9db";
-// const COLOR_DTSW = "#92d050";
-// const COLOR_DMOD02 = "#ddebf7";
-// const COLOR_DTSW618 = "#fff2cc";
-// const COLOR_DEFAULT = "#f4b084";
-// const COLOR_WHITE = "#ffffff";
-// const COLOR_BROWN = "#f8cbad";
 
 const onCellPrepared = function (e) {
     e.cellElement.css("text-align", "center");
