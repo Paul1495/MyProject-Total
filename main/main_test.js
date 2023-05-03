@@ -1,7 +1,7 @@
 const listTest = [
     {
+        ID: 1,
         itemType: 'group',
-        namegroup: 'FabricTest',
         items: [{
             itemType: 'group',
             name: 'Dimensional',
@@ -65,8 +65,8 @@ const listTest = [
             }],
           }],
     }, {
+        ID: 2,
         itemType: 'group',
-        namegroup: 'FabricTest',
         items: [{
             itemType: 'group',
             name: 'Fabric',
@@ -93,8 +93,8 @@ const listTest = [
             ],
         }],  
     }, {
+        ID: 3,
         itemType: 'group',
-        namegroup: 'FabricTest',
         items: [{
             itemType: 'group',
             name: 'Stretch',
@@ -160,8 +160,8 @@ const listTest = [
             ],
         }],
     }, {
+        ID: 4,
         itemType: 'group',
-        namegroup: 'FabricTest',
         items: [{
             itemType: 'group',
             name: 'Peeling',
@@ -192,8 +192,8 @@ const listTest = [
             ],
         }],
     }, {
+        ID: 5,
         itemType: 'group',
-        namegroup: 'FabricTest',
         items: [{
             itemType: 'group',
             name: 'PH',
@@ -213,8 +213,8 @@ const listTest = [
             ],
         }],
     }, {
+        ID: 6,
         itemType: 'group',
-        namegroup: 'MaterialTest',
         items: [{
             itemType: 'group',
             name: 'Washing',
@@ -285,8 +285,8 @@ const listTest = [
             }],
         }],
     }, {
+        ID: 7,
         itemType: 'group',
-        namegroup: 'MaterialTest',
         items: [{
             itemType: 'group',
             name: 'Perspiration',
@@ -413,8 +413,8 @@ const listTest = [
             }],
         }],
     }, {
+        ID: 8,       
         itemType: 'group',
-        namegroup: 'MaterialTest',
         items: [{
             itemType: 'group',
             name: 'Water',
@@ -479,8 +479,8 @@ const listTest = [
             }],
         }]
     }, {
+        ID: 9,
         itemType: 'group',
-        namegroup: 'MaterialTest',
         items: [{
             itemType: 'group',
             name: 'Crocking',
@@ -511,8 +511,8 @@ const listTest = [
                 ],
         }],
     }, {
+        ID: 10,
         itemType: 'group',
-        namegroup: 'MaterialTest',
         items: [{
             itemType: 'group',
             name: 'Oven',
@@ -585,56 +585,127 @@ const listTest = [
         }],
     }
 ];
+console.log(listTest);
 
-const save = [{
+const saveDataInput = [{
     itemType: 'button',
     horizontalAlignment: 'left',
     buttonOptions: {
-        text: 'Save',
-        type: 'success',
+        text: 'Save Data',
+        type: 'default',
         useSubmitBehavior: true,
         onClick: function() {
-        console.log(form.option('formData'))
+            console.log(form.option('formData'))
         }
     },
 }]
 
-const fabric = listTest.filter(x => x.namegroup === 'FabricTest').concat(save);
-console.log(fabric);
-const material = listTest.filter(x => x.namegroup === 'MaterialTest').concat(save);
-console.log(material);
-
 const listCheck = $('#list').dxForm({
     width: 1500,
+    formData: [],
     items: [
     {
         itemType: 'simple',
         editorType: 'dxCheckBox',
+        dataField: "F1",
         editorOptions: {
-            text: '1. Check fabric test',
+            text: '1. DIMENSIONAL STABILITY TO WASHING',
             value: false,
-              onValueChanged(e) {
-                if(e.value) {
-                    form.option('items', fabric)
-                } else {
-                    form.option('items', []);
-                }
-              },
         },
     },{
         itemType: 'simple',
         editorType: 'dxCheckBox',
+        dataField: "F2",
         editorOptions: {
-            text: '2. Check material test',
+            text: '2. FABRIC WEIGHT',
             value: false,
-            onValueChanged(e) {
-                if(e.value) {
-                    form.option('items', material)
-                } else {
-                    form.option('items', []);
-                }
-              },
         },
+    },{
+        itemType: 'simple',
+        editorType: 'dxCheckBox',
+        dataField: "F3",
+        editorOptions: {
+            text: '3. STRETCH, MODULUS AND RECOVERY OF STRETCH FABRICS',
+            value: false,
+        }
+    },{
+        itemType: 'simple',
+        editorType: 'dxCheckBox',
+        dataField: "F4",
+        editorOptions: {
+            text: '4. PEELING STRENGTH TEST',
+            value: false,
+        }
+    },{
+        itemType: 'simple',
+        editorType: 'dxCheckBox',
+        dataField: "F5",
+        editorOptions: {
+            text: '5. pH IN VALUE',
+            value: false,
+        }
+    },{
+        itemType: 'simple',
+        editorType: 'dxCheckBox',
+        dataField: "F6",
+        editorOptions: {
+            text: '6. COLORFASTNESS TO WASHING',
+            value: false,
+        }
+    },{
+        itemType: 'simple',
+        editorType: 'dxCheckBox',
+        dataField: "F7",
+        editorOptions: {
+            text: '7. COLORFASTNESS TO PERSPIRATION',
+            value: false,
+        }
+    },{
+        itemType: 'simple',
+        editorType: 'dxCheckBox',
+        dataField: "F8",
+        editorOptions: {
+            text: '8. COLORFASTNESS TO WATER',
+            value: false,
+        }
+    },{
+        itemType: 'simple',
+        editorType: 'dxCheckBox',
+        dataField: "F9",
+        editorOptions: {
+            text: '9. COLORFASTNESS TO CROCKING',
+            value: false,
+        }
+    },{
+        itemType: 'simple',
+        editorType: 'dxCheckBox',
+        dataField: "F10",
+        editorOptions: {
+            text: '10. COLOR MIGRATION OVEN TEST',
+            value: false,
+        }
+    },{
+        itemType: 'button',
+        horizontalAlignment: 'left',
+        buttonOptions: {
+            text: 'Save Selection',
+            type: 'success',
+            useSubmitBehavior: true,
+            onClick: function() {
+                var dataChosen = listCheck.option('formData');//Lưu trữ dữ liệu người dùng sau khi chọn
+                var dataKeys = Object.keys(listCheck.option('formData'));//Sử lý dữ dữ liệu chuyển định dạng
+                var combined = [];
+                
+                $.each(dataKeys, (i, keys) => {//Vòng lặp chạy qua từng phần tử trong dataKeys
+                    var id = keys.substring(1, 3)// Cắt đoạn phần tử và lưu trữ trong 1 biến
+                    if(dataChosen[keys]) {//Đặt điều kiện nếu các phần tử == true
+                        combined.push(listTest.filter(x => x.ID == id)[0])// Push dữ liệu đã xử lý vào trong 1 biến
+                    }
+                })
+                var dataForm = combined.concat(saveDataInput);//Nối thêm biến save(lưu trữ dữ liệu nhập sau khi người dùng điện thông tin)
+                form.option('items', dataForm);//Gán dataForm vào items của form để vẽ lên dữ liệu cần điền
+            }
+        }, 
     }],
 }).dxForm('instance');
 
