@@ -43,38 +43,33 @@ const description_data = [{
 
 const columns_data = [
 { 
-    dataField: "ProductOrder",
-    caption: "制单号 Đơn sản xuất",
+    dataField: "Item",
+    caption: "机台号Mã máy",
     dataType: "text",
 },{
     dataField: "Style",
     caption: "款号 Mã hàng",
 },{
-    dataField: "QtyOfSaleOrder",
-    caption: "订单数量 Số lượng đơn hàng",
+    dataField: "SOItem",
+    caption: "生产工单号Mã đơn sản xuất",
     dataType: "number",
 },{
-    dataField: "Application",
-    caption: "工作层次 Nhóm công đoạn",
+    dataField: "CutQty",
+    caption: "当日裁切数量(片)Số lượng cắt trong ngày",
 },{
-    dataField: "NameOfApplication",
-    caption: "工作层次名称 Tên nhóm công đoạn",
+    dataField: "CutPlanQty",
+    caption: "当日计划裁切数量(片)Số lượng cắt KH trong ngày",
 },{
-    dataField: "QtyOfCut",
-    caption: "已裁数量 Số lượng đã cắt",
-    dataType: "number",
+    dataField: "Rate",
+    caption: "完成比例Tỷ lệ hoàn thành",
 },{
-    dataField: "QtyOut",
-    caption: "已出仓数量 Số lượng đã xuất kho",
-    dataType:"number",
-},{
-    dataField: "DateOut",
-    caption: "交货日期 Ngày xuất hàng",
+    dataField: "DateFinish",
+    caption: "裁切完成日期Ngày hoàn thành cắt",
     dataType:"date",
 }];
   
 var grid = $('#grid').dxDataGrid({
-    dataSource: description_data,
+    dataSource: [],
       keyExpr: 'ID',
       columns: columns_data,
       wordWrapEnabled: true,
@@ -84,7 +79,7 @@ var grid = $('#grid').dxDataGrid({
 var onRowPrepared = function (e) {
     // console.log(e);
     if(e.rowType == "header") {
-        e.rowElement.css('background', '#FFBF9B');
+        e.rowElement.css('background', '#f4b084');
         return;
     }
 };

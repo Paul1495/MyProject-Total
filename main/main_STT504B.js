@@ -17,15 +17,15 @@ $.each(orderInfor, (i, order) => {
         combine[`${analyst.StoreNo}_OUT_LACK`] = order.MO_qty - analyst.TotalOut;
     })
     
-    // const analystFoam = foamStoreIOs.find(foam => foam.ColorNo === order.COLOR_NO && foam.CM === order.CM && foam.Zdcode === order.FoamZDcode);
-    //     combine[`DTSW1FOAM_IN`] = analystFoam.TotalFoamCupIn;
-    //     combine[`DTSW1FOAM_IN_LACK`] = order.MO_qty - analystFoam.TotalFoamCupIn;
+    const analystFoam = foamStoreIOs.find(foam => foam.ColorNo === order.COLOR_NO && foam.CM === order.CM && foam.Zdcode === order.FoamZDcode);
+    combine[`DTSW1FOAM_IN`] = analystFoam.TotalFoamCupIn;
+    combine[`DTSW1FOAM_IN_LACK`] = order.MO_qty - analystFoam.TotalFoamCupIn;
 
     data.push({
         ...order,
         ...combine
     })
-    console.log(data);
+    // console.log(data);
 });
 
 // grid.option('dataSource', data);
@@ -44,97 +44,87 @@ function SUM(col) {
 // Set up column (permanent) 
 const columns_data = [
     {
-        dataField: "ZDCODE",
-        caption: "工单号 MO",
+        dataField: "Line",
+        caption: "线别Chuyền",
         name: "LineGroup",
         visible: false,
         groupIndex: 0,//Set group Item 
     },{
+        dataField: "Line",
+        caption: "线别Chuyền",
+    },{
         dataField: "STYLE_NO",
-        caption: "款号 Style No",
+        caption: "款号Khoản hàng",
         width: 120,
     },{
         dataField: "SaleNo",
-        caption: "销售单号 SO",
+        caption: "销售单号Đơn tiêu thụ",
         width: 120,
     },{
         dataField: "ZDCODE",
-        caption: "工单号 MO",
+        caption: "工单号Đơn sản xuất",
         width: 120,
     },{
-        dataField: "SOItemNo",
-        caption: "项目 Hạng mục",
-        width: 80,
-    },{
-        dataField: "COLOR_NAME_C",
-        caption: "颜色 Color",
-        width: 110,
-    },{
         dataField: "Take_Date",
-        caption: "出货日期 Ship Date",
+        caption: "出货日期Ngày xuất hàng",
         dataType: "date",
         format: 'MM/dd/yyyy',
         width: 100,
     },{
-        dataField: "CM",
-        caption: "尺码 Size",
+        dataField: "COLOR_NO",
+        caption: "颜色 Màu sắc",
     },{
-        dataField: "MO_qty",
-        caption: "订单数量 Quantity",
+        dataField: "Size",
+        caption: "尺码SIZE",
+    },{
+        dataField: "Qty",
+        caption: "订单数量Số lượng đơn đặt hàng",
         width: 100,
-}];
+    },{
+        dataField: "TargetQuantity",
+        caption: "线别分配数量Sản lượng phân chuyền",
+        width: 100,
+    }
+];
 
 const group_columns_data = [
     {
-        name: "DCUT",
-        caption: "裁床-DCUT Xưởng cắt",
+        name: "697",
+        caption: "配料Phối liệu",
     },{
-        name: "DPMT-PRT-01",
-        caption: "移印-DPMT-PRT-01 Xưởng In",
+        name: "698",
+        caption: "打枣Đánh bọ",
     },{
-        name: "DMOD01",
-        caption: "布杯定型-DMOD01 Xưởng định hình"
-    },{
-        name: "DMOD02",
-        caption: "打标--啤机-DMOD02 Xưởng cắt laze--dập máy bế"
-    },{
-        name: "DTSW618",
-        caption: "618车间-DTSW618 Xưởng 618"
-    },{
-        name: "DTSW1",
-        caption: "配料中心-DTSW1 Trung tâm phối liệu"
-    },
-]
+        name: "700",
+        caption: "成品Thành phẩm"
+    }
+];
 
 const setupAllTable = group_columns_data.map((x) => {
-    const inDataField = `${x.name}_IN`;
-    const inLackDataField = `${inDataField}_LACK`;
-    const outDataField = x.name !== "DTSW618" ? `${x.name}_OUT` : `DTSW618_OUT`;
-    const outLackDataField = `${outDataField}_LACK`;
+    const dataField = `${x.name}Today`;
+    const acculmulateDataField = `${x.name}AllTime`;
+    // const outDataField = x.name !== "DTSW618" ? `${x.name}_OUT` : `DTSW618_OUT`;
+    const lackDataField = `${x.name}Check`;
 
     const column = {
         dataField: x.name,
         caption: x.caption,
         columns: [{
-            dataField: inDataField,
-            caption: "累计生产 Lũy kế sản xuất",
+            dataField: dataField,
+            caption: "当天Hôm nay",
         },{
-            dataField: inLackDataField,
-            caption: "入仓欠数 Số lượng liệu đến thiếu",
+            dataField: acculmulateDataField,
+            caption: "累计Lũy kế",
         },{
-            dataField: outDataField,
-            caption: "累计发料 Luỹ kế phát liệu",
-        },{
-            dataField: outLackDataField,
-            caption: "欠数 Số lượng liệu phát thiếu",
-        },]
+            dataField: lackDataField,
+            caption: "欠数Số lượng thiếu",
+        }]
     };
 
     const summary = [
-        SUM(inDataField),
-        SUM(inLackDataField),
-        SUM(outDataField),
-        SUM(outLackDataField),
+        SUM(dataField),
+        SUM(acculmulateDataField),
+        SUM(lackDataField),
     ];
 
     return {
@@ -143,31 +133,35 @@ const setupAllTable = group_columns_data.map((x) => {
     }
 });
 
-const setupFoamTable = [
+const setupTable = [
     {
-        dataField: "DTSW1FOAM_IN",
-        caption: "棉杯入仓 Quả áo nhập kho DTSW1",
+        dataField: "697To698",
+        caption: "配料到打枣之间Phối liệu -->Đánh bọ",
     },{
-        dataField: "DTSW1FOAM_IN_LACK",
-        caption: "棉杯欠数 Số lượng quả áo thiếu",
-    },
+        dataField: "698To700",
+        caption: "打枣到成品之间Đánh bọ --> Thành phẩm",
+    },{
+        dataField: "697To700",
+        caption: "配料到成品之间Nguyên liệu --> Thành phẩm",
+    }
 ];
 
 
 const grid = $('#grid').dxDataGrid({
-    dataSource: data,
+    dataSource: [],
     columns: [
         ...columns_data,
         ...setupAllTable.map(x => x.column),
-        ...setupFoamTable,
+        ...setupTable,
     ],
     showBorders: true,
     wordWrapEnabled: true,
     summary: {
         groupItems: [
             ...setupAllTable.map(x => x.summary).flat(),
-            SUM("DTSW1FOAM_IN"),
-            SUM("DTSW1FOAM_IN_LACK"),
+            SUM("697To698"),
+            SUM("698To700"),
+            SUM("697To700"),
         ],
       },
     
@@ -175,7 +169,7 @@ const grid = $('#grid').dxDataGrid({
 
 const onRowPrepared = function (e) {
     if(e.rowType == "header") {
-        e.rowElement.css('background', '#F4B183');
+        e.rowElement.css('background', '#ff46a0');
         return;
     }
     if(e.rowType == "group") {
@@ -192,24 +186,6 @@ const onCellPrepared = function (e) {
     if (e.rowType == "header") {
         e.cellElement.css('color', '#000000');
         e.cellElement.css('font-weight', 'bold');
-
-        if(e.column.dataField.includes("DCUT")) {
-            e.cellElement.css({'background':'#a9d08e'});
-            } else if(e.column.dataField.includes("DPMT")) {
-                e.cellElement.css({'background':'#ffe699'});
-                } else if(e.column.dataField.includes("DMOD01")) {
-                    e.cellElement.css({'background':'#8ea9db'});
-                    } else if(e.column.dataField.includes("DMOD02")) {
-                        e.cellElement.css({'background':'#ddebf7'});
-                        } else if(e.column.dataField.includes("DTSW618")) {
-                            e.cellElement.css({'background':'#fff2cc'});
-                                } else if(e.column.dataField === "DTSW1FOAM_IN") {
-                                    e.cellElement.css({'background':'yellow'});
-                                    } else if(e.column.dataField === "DTSW1FOAM_IN_LACK") {
-                                        e.cellElement.css({'background':'white'}); 
-                                        } else if(e.column.dataField.includes("DTSW1")) {
-                                             e.cellElement.css({'background':'#92d050'});
-    } 
     }
     
     if(e.rowType === "groupFooter"){
