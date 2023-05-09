@@ -177,7 +177,7 @@ const columns_data = [
     caption: "班次 Ca làm việc",
 },{
     dataField: "CopyProductOrder",
-    caption: "CopyProductOrder",
+    caption: "MO",
     name: "ProductGroup",
     visible: false,
     groupIndex: 0,//Set group Item 
@@ -250,31 +250,31 @@ const summary_data = [
     column: "QuantityOfOrder",
     summaryType: "sum",
     displayFormat: "{0}",
-    showInGroupFooter: true,
+    showInGroupFooter: false,
     alignByColumn: true
 },{
     column: "Increase",
     summaryType: "sum",
     displayFormat: "{0}",
-    showInGroupFooter: true,
+    showInGroupFooter: false,
     alignByColumn: true
 },{
     column: "Cumulation",
     summaryType: "sum",
     displayFormat: "{0}",
-    showInGroupFooter: true,
+    showInGroupFooter: false,
     alignByColumn: true
 },{
     column: "QuantityOfLack",
     summaryType: "sum",
     displayFormat: "{0}",
-    showInGroupFooter: true,
+    showInGroupFooter: false,
     alignByColumn: true
 },{
     column: "QuantityAsShift",
     summaryType: "sum",
     displayFormat: "{0}",
-    showInGroupFooter: true,
+    showInGroupFooter: false,
     alignByColumn: true
 }];
 
@@ -282,6 +282,19 @@ var grid = $('#grid').dxDataGrid({
     dataSource: description_data,
     keyExpr: 'ID',
     columns: columns_data,
+    paging: {//Chia page trang web
+        enabled: false,
+    },
+    // pager : {
+    //     visible: true,
+    // },
+    scrolling: {
+        columnRenderingMode:"standard",
+        mode:"standard",
+        scrollByContent:true,
+    },
+    showColumnLines: true,
+    showRowLines: true,
     showBorders: true,
     wordWrapEnabled: true,
     selection: {
@@ -296,13 +309,13 @@ var grid = $('#grid').dxDataGrid({
 const onRowPrepared = function (e) {
     // console.log(e);
     if(e.rowType == "header") {
-        e.rowElement.css('background', '#FFBF9B');
+        e.rowElement.css('background', '#f8cbad');
         e.rowElement.css('height', 50);
         return;
     }
 
     if(e.rowType == "group") {
-       e.rowElement.hide();
+        e.rowElement.css({'background':'#ffe699'});
        return;
     }
 };
@@ -322,9 +335,9 @@ const onCellPrepared = function (e) {
         return;
     } 
     
-    if(e.rowType === "groupFooter"){
-        e.cellElement.css({'background':'#FFD966'});
-    }
+    // if(e.rowType === "groupFooter"){
+    //     e.cellElement.css({'background':'#FFD966'});
+    // }
     };
 
 grid.option('onCellPrepared', onCellPrepared);

@@ -1,34 +1,47 @@
-const orderInfor = JSON.parse(`[{"CUSTNAME":"妮高 (馬來西亞)","SaleNo":"A160119250","STYLE_NO":"U02BTF055AJP-J1_2505","SOItemNo":"000010","ZDCODE":"000077033434","FoamZDcode":"000020154802","Take_Date":"2023-05-24T00:00:00","COLOR_NO":"001","COLOR_NAME_C":"001黑色,棉杯面黑底黑（不易脏）","CM":"140cm","MO_qty":120},{"CUSTNAME":"妮高 (馬來西亞)","SaleNo":"A160119250","STYLE_NO":"U02BTF055AJP-J1_2505","SOItemNo":"000010","ZDCODE":"000077033434","FoamZDcode":"000020154802","Take_Date":"2023-05-24T00:00:00","COLOR_NO":"001","COLOR_NAME_C":"001黑色,棉杯面黑底黑（不易脏）","CM":"150cm","MO_qty":122},{"CUSTNAME":"妮高 (馬來西亞)","SaleNo":"A160119250","STYLE_NO":"U02BTF055AJP-J1_2505","SOItemNo":"000010","ZDCODE":"000077033434","FoamZDcode":"000020154802","Take_Date":"2023-05-24T00:00:00","COLOR_NO":"001","COLOR_NAME_C":"001黑色,棉杯面黑底黑（不易脏）","CM":"160cm","MO_qty":740},{"CUSTNAME":"妮高 (馬來西亞)","SaleNo":"A160119250","STYLE_NO":"U02BTF055AJP-J1_2505","SOItemNo":"000020","ZDCODE":"000077033435","FoamZDcode":"000020154845","Take_Date":"2023-05-24T00:00:00","COLOR_NO":"500","COLOR_NAME_C":"500粉色,棉杯面粉色底粉色（不易脏）","CM":"140cm","MO_qty":84},{"CUSTNAME":"妮高 (馬來西亞)","SaleNo":"A160119250","STYLE_NO":"U02BTF055AJP-J1_2505","SOItemNo":"000020","ZDCODE":"000077033435","FoamZDcode":"000020154845","Take_Date":"2023-05-24T00:00:00","COLOR_NO":"500","COLOR_NAME_C":"500粉色,棉杯面粉色底粉色（不易脏）","CM":"150cm","MO_qty":122},{"CUSTNAME":"妮高 (馬來西亞)","SaleNo":"A160119250","STYLE_NO":"U02BTF055AJP-J1_2505","SOItemNo":"000020","ZDCODE":"000077033435","FoamZDcode":"000020154845","Take_Date":"2023-05-24T00:00:00","COLOR_NO":"500","COLOR_NAME_C":"500粉色,棉杯面粉色底粉色（不易脏）","CM":"160cm","MO_qty":852},{"CUSTNAME":"妮高 (馬來西亞)","SaleNo":"A160119250","STYLE_NO":"U02BTF055AJP-J1_2505","SOItemNo":"000030","ZDCODE":"000077033436","FoamZDcode":"000020154944","Take_Date":"2023-05-24T00:00:00","COLOR_NO":"475","COLOR_NAME_C":"475?浅蓝色,棉杯面浅蓝色棉杯底浅蓝色(易脏)","CM":"140cm","MO_qty":220},{"CUSTNAME":"妮高 (馬來西亞)","SaleNo":"A160119250","STYLE_NO":"U02BTF055AJP-J1_2505","SOItemNo":"000030","ZDCODE":"000077033436","FoamZDcode":"000020154944","Take_Date":"2023-05-24T00:00:00","COLOR_NO":"475","COLOR_NAME_C":"475?浅蓝色,棉杯面浅蓝色棉杯底浅蓝色(易脏)","CM":"150cm","MO_qty":440},{"CUSTNAME":"妮高 (馬來西亞)","SaleNo":"A160119250","STYLE_NO":"U02BTF055AJP-J1_2505","SOItemNo":"000030","ZDCODE":"000077033436","FoamZDcode":"000020154944","Take_Date":"2023-05-24T00:00:00","COLOR_NO":"475","COLOR_NAME_C":"475?浅蓝色,棉杯面浅蓝色棉杯底浅蓝色(易脏)","CM":"160cm","MO_qty":78}]`)
-const foamStoreIOs = JSON.parse(`[{"StoreNo":"DTSW1","Zdcode":"000020154802","ColorNo":"001","CM":"140cm","TotalFoamCupIn":129},{"StoreNo":"DTSW1","Zdcode":"000020154802","ColorNo":"001","CM":"150cm","TotalFoamCupIn":131},{"StoreNo":"DTSW1","Zdcode":"000020154802","ColorNo":"001","CM":"160cm","TotalFoamCupIn":795},{"StoreNo":"DTSW1","Zdcode":"000020154845","ColorNo":"500","CM":"140cm","TotalFoamCupIn":88},{"StoreNo":"DTSW1","Zdcode":"000020154845","ColorNo":"500","CM":"150cm","TotalFoamCupIn":128},{"StoreNo":"DTSW1","Zdcode":"000020154845","ColorNo":"500","CM":"160cm","TotalFoamCupIn":889},{"StoreNo":"DTSW1","Zdcode":"000020154944","ColorNo":"475","CM":"140cm","TotalFoamCupIn":230},{"StoreNo":"DTSW1","Zdcode":"000020154944","ColorNo":"475","CM":"150cm","TotalFoamCupIn":459},{"StoreNo":"DTSW1","Zdcode":"000020154944","ColorNo":"475","CM":"160cm","TotalFoamCupIn":814}]`)
-const storeIOs = JSON.parse(`[{"StoreNo":"DPMT-PRT-01","Zdcode":"000077033434","ColorNo":"001","CM":"140cm","TotalIn":92,"TotalOut":92},{"StoreNo":"DPMT-PRT-01","Zdcode":"000077033434","ColorNo":"001","CM":"160cm","TotalIn":722,"TotalOut":722},{"StoreNo":"DTSW1","Zdcode":"000077033434","ColorNo":"001","CM":"160cm","TotalIn":695,"TotalOut":695},{"StoreNo":"DCUT","Zdcode":"000077033434","ColorNo":"001","CM":"140cm","TotalIn":128,"TotalOut":128},{"StoreNo":"DPMT-PRT-01","Zdcode":"000077033434","ColorNo":"001","CM":"150cm","TotalIn":80,"TotalOut":80},{"StoreNo":"DCUT","Zdcode":"000077033434","ColorNo":"001","CM":"160cm","TotalIn":822,"TotalOut":776},{"StoreNo":"DTSW1","Zdcode":"000077033434","ColorNo":"001","CM":"150cm","TotalIn":132,"TotalOut":132},{"StoreNo":"DCUT","Zdcode":"000077033434","ColorNo":"001","CM":"150cm","TotalIn":132,"TotalOut":132},{"StoreNo":"DTSW1","Zdcode":"000077033434","ColorNo":"001","CM":"140cm","TotalIn":128,"TotalOut":128},{"StoreNo":"DTSW1","Zdcode":"000077033435","ColorNo":"500","CM":"140cm","TotalIn":96,"TotalOut":96},{"StoreNo":"DPMT-PRT-01","Zdcode":"000077033435","ColorNo":"500","CM":"140cm","TotalIn":96,"TotalOut":96},{"StoreNo":"DTSW1","Zdcode":"000077033435","ColorNo":"500","CM":"160cm","TotalIn":875,"TotalOut":875},{"StoreNo":"DCUT","Zdcode":"000077033435","ColorNo":"500","CM":"160cm","TotalIn":869,"TotalOut":869},{"StoreNo":"DCUT","Zdcode":"000077033435","ColorNo":"500","CM":"140cm","TotalIn":96,"TotalOut":96},{"StoreNo":"DCUT","Zdcode":"000077033435","ColorNo":"500","CM":"150cm","TotalIn":132,"TotalOut":132},{"StoreNo":"DPMT-PRT-01","Zdcode":"000077033435","ColorNo":"500","CM":"150cm","TotalIn":132,"TotalOut":132},{"StoreNo":"DTSW1","Zdcode":"000077033435","ColorNo":"500","CM":"150cm","TotalIn":132,"TotalOut":132},{"StoreNo":"DPMT-PRT-01","Zdcode":"000077033435","ColorNo":"500","CM":"160cm","TotalIn":880,"TotalOut":875},{"StoreNo":"DPMT-PRT-01","Zdcode":"000077033436","ColorNo":"475","CM":"150cm","TotalIn":462,"TotalOut":462},{"StoreNo":"DPMT-PRT-01","Zdcode":"000077033436","ColorNo":"475","CM":"160cm","TotalIn":818,"TotalOut":818},{"StoreNo":"DCUT","Zdcode":"000077033436","ColorNo":"475","CM":"150cm","TotalIn":467,"TotalOut":464},{"StoreNo":"DCUT","Zdcode":"000077033436","ColorNo":"475","CM":"160cm","TotalIn":824,"TotalOut":818},{"StoreNo":"DTSW1","Zdcode":"000077033436","ColorNo":"475","CM":"140cm","TotalIn":231,"TotalOut":231},{"StoreNo":"DTSW1","Zdcode":"000077033436","ColorNo":"475","CM":"150cm","TotalIn":462,"TotalOut":462},{"StoreNo":"DCUT","Zdcode":"000077033436","ColorNo":"475","CM":"140cm","TotalIn":252,"TotalOut":251},{"StoreNo":"DTSW1","Zdcode":"000077033436","ColorNo":"475","CM":"160cm","TotalIn":818,"TotalOut":818},{"StoreNo":"DPMT-PRT-01","Zdcode":"000077033436","ColorNo":"475","CM":"140cm","TotalIn":247,"TotalOut":231}]`);
-console.log(orderInfor);
-console.log(foamStoreIOs);
-console.log(storeIOs);
+//Get data from file Data
+import {
+    orderDetails,
+    targets,
+    outputs
+}
+from '../data/data_STT509.js';
 
-// Processing Data
+//Find unique(Line) value in array Outputs
+const listLine = [...new Set(outputs.map(item => item.Workline))];
+//Create a empty variable to push all data after processing
 const data = [];
-$.each(orderInfor, (i, order) => {
-    const combine = [];
-    const analystStoreOrder = storeIOs.filter(store => store.ColorNo === order.COLOR_NO && store.CM === order.CM && store.Zdcode === order.ZDCODE);
-    $.each(analystStoreOrder, (i, analyst) => {
-        combine[`${analyst.StoreNo}_IN`] = analyst.TotalIn;
-        combine[`${analyst.StoreNo}_OUT`] = analyst.TotalOut;
-        combine[`${analyst.StoreNo}_IN_LACK`] = order.MO_qty - analyst.TotalIn;
-        combine[`${analyst.StoreNo}_OUT_LACK`] = order.MO_qty - analyst.TotalOut;
-    })
-    
-    const analystFoam = foamStoreIOs.find(foam => foam.ColorNo === order.COLOR_NO && foam.CM === order.CM && foam.Zdcode === order.FoamZDcode);
-    combine[`DTSW1FOAM_IN`] = analystFoam.TotalFoamCupIn;
-    combine[`DTSW1FOAM_IN_LACK`] = order.MO_qty - analystFoam.TotalFoamCupIn;
 
-    data.push({
-        ...order,
-        ...combine
+//Get data from array outputs compare to listLine. Use forEach loop over each element.
+$.each(listLine, (i, line) => {
+    //Create a variable to save result after processing. Use filter to get all Data from array outputs.
+    const lineData = outputs.filter(out => out.Workline === line);
+    //Find unique(Zdcode) value in array lineData
+    const orders = [...new Set(lineData.map(item => item.Zdcode))];
+    //Get data from array lineData. Use forEach loop over each element.
+    $.each(orders, (y, order) => {
+        //Create a variable to save result after processing. Use filter to get all Data from array lineData.
+        const orderData = lineData.filter(line => line.Zdcode === order);
+        //Get information about Factory, SO, MO, ShipDate,....from array orderDetails and then save result in a variable. Use find 
+        const orderDetail = orderDetails.find(detail => detail.Zdcode === order);
+        //Get data about TargetQuantity from array targets and save all in a variable. Use find
+        const target = targets.find(target => target.Zdcode === order && target.Workline === line);
+         //Create a empty variable to push all data after processing
+        const combine = {
+            ...orderDetail,
+            Workline: line,
+            Zdcode: order,
+            TargetQuantity: target?.TargetQuantity ?? 0
+         };
+        //Combined all data according to Zdcode. Use forEach loop over each element.
+        $.each(orderData, (z, data) => {
+            combine[`${data.GxNo}${data.Type}`] = data.Quantity;
+        })
+         //Push all data inside object combine in data(empty variable)
+         data.push(combine);     
     })
-    // console.log(data);
-});
+})
+console.log(data);
 
-// grid.option('dataSource', data);
 
 // Set up sum config
 function SUM(col) {
@@ -36,7 +49,7 @@ function SUM(col) {
         column: col,
         summaryType: "sum",
         displayFormat: "{0}",
-        showInGroupFooter: true,
+        showInGroupFooter: false,
         alignByColumn: true
     }   
 };
@@ -44,36 +57,36 @@ function SUM(col) {
 // Set up column (permanent) 
 const columns_data = [
     {
-        dataField: "Line",
+        dataField: "Workline",
         caption: "线别Chuyền",
         name: "LineGroup",
         visible: false,
         groupIndex: 0,//Set group Item 
     },{
-        dataField: "Line",
+        dataField: "Workline",
         caption: "线别Chuyền",
     },{
-        dataField: "STYLE_NO",
+        dataField: "StyleNo",
         caption: "款号Mã hàng",
     },{
         dataField: "SaleNo",
         caption: "销售单号Mã đơn tiêu thụ",
     },{
-        dataField: "ZDCODE",
+        dataField: "Zdcode",
         caption: "工单号Đơn sản xuất",
     },{
-        dataField: "Take_Date",
+        dataField: "ExportDate",
         caption: "出货日期Ngày xuất hàng",
         dataType: "date",
         format: 'MM/dd/yyyy',
     },{
-        dataField: "COLOR_NO",
+        dataField: "ColorNo",
         caption: "颜色 Màu sắc",
     },{
         dataField: "Size",
         caption: "Size",
     },{
-        dataField: "Qty",
+        dataField: "Quantity",
         caption: "订单数量Sản lượng đặt hàng",
     },{
         dataField: "TargetQuantity",
@@ -111,8 +124,8 @@ const group_columns_data = [
 
 const setupAllTable = group_columns_data.map((x) => {
     const dataField = `${x.name}Today`;
-    const acculmulateDataField = `${x.name}AllTime`;
-    const lackDataField = `${x.name}Check`;
+    const acculmulateDataField = `${x.name}Accumulated`;
+    const lackDataField = `${x.name}Lack`;
 
     const column = {
         dataField: x.name,
@@ -120,12 +133,34 @@ const setupAllTable = group_columns_data.map((x) => {
         columns: [{
             dataField: dataField,
             caption: "当天Hôm nay",
+            calculateCellValue: (rowData) => {
+                if(rowData[dataField]) {
+                    return rowData[dataField];
+                } else {
+                    rowData[dataField] = 0;
+                    return rowData[dataField];
+                }
+            }
         },{
             dataField: acculmulateDataField,
             caption: "累计Lũy kế",
+            calculateCellValue: (rowData) => {
+                if(rowData[acculmulateDataField]) {
+                    return rowData[acculmulateDataField];
+                } else {
+                    rowData[acculmulateDataField] = 0;
+                    return rowData[acculmulateDataField];
+                }
+            }
         },{
             dataField: lackDataField,
             caption: "欠数Số lượng thiếu",
+            calculateCellValue: (rowData) => {
+                // if (rowData["TargetQuantity"]) {
+                    rowData[lackDataField] = rowData["Quantity"] - rowData[acculmulateDataField] - rowData[dataField];
+                    return rowData[lackDataField];
+                // }
+            }
         }]
     };
 
@@ -142,7 +177,20 @@ const setupAllTable = group_columns_data.map((x) => {
 });
 
 const grid = $('#grid').dxDataGrid({
-    dataSource: [],
+    dataSource: data,
+    paging: {//Chia page trang web
+        enabled: false,
+    },
+    // pager : {
+    //     visible: true,
+    // },
+    scrolling: {
+        columnRenderingMode:"standard",
+        mode:"standard",
+        scrollByContent:true,
+    },
+    showColumnLines: true,
+    showRowLines: true,
     columns: [
         ...columns_data,
         ...setupAllTable.map(x => x.column),
@@ -163,7 +211,8 @@ const onRowPrepared = function (e) {
         return;
     }
     if(e.rowType == "group") {
-       e.rowElement.hide();
+       e.rowElement.css('background', '#404040');
+       e.rowElement.css('color', 'white');
        return;
     }
 
@@ -177,11 +226,15 @@ const onCellPrepared = function (e) {
         e.cellElement.css('color', '#000000');
         e.cellElement.css('font-weight', 'bold');
     }
-    
-    if(e.rowType === "groupFooter"){
-        e.cellElement.css({'background':'#FFD966'});
-        return;
+
+    if (e.rowType == "data" && e.column.dataField.includes("Accumulated")) {
+        e.cellElement.css('background', 'yellow')
     }
+    
+    // if(e.rowType === "groupFooter"){
+    //     e.cellElement.css({'background':'#FFD966'});
+    //     return;
+    // }
 };
 
 grid.option('onCellPrepared', onCellPrepared);

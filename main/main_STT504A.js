@@ -1,19 +1,20 @@
+import {
+    data
+} from '../data/data_STT504A.js';
+
 // Set up column (permanent) 
 const columns_data = [
     {
-        dataField: "Line",
-        caption: "线别Chuyền",
-        name: "LineGroup",
+        dataField: "Factory",
+        caption: "线别Xưởng",
+        name: "FactoryGroup",
         visible: false,
         groupIndex: 0,//Set group Item 
     },{
-        dataField: "Factory",
-        caption: "车间Xưởng",
-    },{
-        dataField: "Line",
+        dataField: "Workline",
         caption: "线别Chuyền",
     },{
-        dataField: "STYLE_NO",
+        dataField: "StyleNo",
         caption: "款号Mã hàng",
     },{
         dataField: "Sam",
@@ -40,10 +41,20 @@ const columns_data = [
             caption:"QC 一查Công đoạn kiểm hàng"  
         },{
             dataField:"Lack",
-            caption:"少数 目标-重点工序SL thiếu - CĐTĐ" 
+            caption:"少数 目标-重点工序SL thiếu - CĐTĐ",
+            calculateCellValue: (rowData) => {
+                rowData["Lack"] = rowData["Target"] - rowData["KeyStage"];
+                return rowData["Lack"];
+            } 
         },{
             dataField:"Rate",
-            caption:"达成率Tỷ lệ đạt" 
+            caption:"达成率Tỷ lệ đạt",
+            dataType: "percent",
+            format: '#0.##%',
+            calculateCellValue: (rowData) => {
+                rowData["Rate"] = rowData["KeyStage"] / rowData["Target"];
+                return rowData["Rate"];
+            } 
         }]
     },{
         dataField:"Efficiency",
@@ -51,16 +62,45 @@ const columns_data = [
     }
 ];
 
+function SUM(col) {
+    return {
+        column: col,
+        summaryType: "sum",
+        displayFormat: "{0}",
+        showInGroupFooter: false,
+        alignByColumn: true
+    }   
+};
 
 const grid = $('#grid').dxDataGrid({
-    dataSource: [],
+    dataSource: data,
+    paging: {//Chia page trang web
+        enabled: false,
+    },
+    // pager : {
+    //     visible: true,
+    // },
+    scrolling: {
+        columnRenderingMode:"standard",
+        mode:"standard",
+        scrollByContent:true,
+    },
+    showColumnLines: true,
+    showRowLines: true,
     columns: [
         ...columns_data,
     ],
     showBorders: true,
     wordWrapEnabled: true,
     summary: {
-        groupItems: [],
+        groupItems: [
+           SUM("Staff"),
+           SUM("Real"),
+           SUM("Target"),
+           SUM("KeyStage"),
+           SUM("CheckStage"),
+           SUM("Lack"),
+        ],
       },
     
 }).dxDataGrid('instance');
@@ -71,7 +111,7 @@ const onRowPrepared = function (e) {
         return;
     }
     if(e.rowType == "group") {
-       e.rowElement.hide();
+       e.rowElement.css('background', '#f4b084');
        return;
     }
 
@@ -85,11 +125,21 @@ const onCellPrepared = function (e) {
         e.cellElement.css('color', '#000000');
         e.cellElement.css('font-weight', 'bold');
     }
-    
-    if(e.rowType === "groupFooter"){
-        e.cellElement.css({'background':'#FFD966'});
-        return;
+
+    if (e.rowType == "data") {
+        if(e.column.dataField === "Staff") {
+            e.cellElement.css('background', '#a9d08e');
+            } else if(e.column.dataField === "Real") {
+                e.cellElement.css('background', '#f4b084');
+                } else if(e.column.dataField === "Target") {
+                    e.cellElement.css('background', '#9bc2e6');
+                    }      
     }
+    
+    // if(e.rowType === "groupFooter"){
+    //     e.cellElement.css({'background':'#FFD966'});
+    //     return;
+    // }
 };
 
 grid.option('onCellPrepared', onCellPrepared);

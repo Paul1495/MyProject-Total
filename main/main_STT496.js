@@ -131,7 +131,7 @@ const setupAllTable = group_columns_data.map((x) => {
             caption: "欠数Số lượng thiếu",
             calculateCellValue: (rowData) => {
                 // if (rowData["TargetQuantity"]) {
-                    rowData[lackDataField] = rowData["TargetQuantity"] - (rowData[acculmulateDataField] ?? 0);
+                    rowData[lackDataField] = rowData["TargetQuantity"] - rowData[acculmulateDataField];
                     return rowData[lackDataField];
                 // }
             }
@@ -181,9 +181,9 @@ const grid = $('#grid').dxDataGrid({
     paging: {//Chia page trang web
         enabled: false,
     },
-    pager : {
-        visible: false,
-    },
+    // pager : {
+    //     visible: true,
+    // },
     scrolling: {
         columnRenderingMode:"standard",
         mode:"standard",
@@ -231,6 +231,10 @@ const onCellPrepared = function (e) {
     if (e.rowType == "header") {
         e.cellElement.css('color', '#000000');
         e.cellElement.css('font-weight', 'bold');
+    }
+
+    if (e.rowType == "data" && e.column.dataField.includes("Accumulated")) {
+        e.cellElement.css('background', 'yellow');
     }
     
     // if(e.rowType === "groupFooter"){

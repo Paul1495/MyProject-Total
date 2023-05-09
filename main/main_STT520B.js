@@ -116,6 +116,12 @@ const columns_data = [
 
 const summary_data = [
 {
+    column: "Customer",
+    summaryType: "count",
+    displayFormat: "汇总Tổng ({0})",
+    showInGroupFooter: false,
+    alignByColumn: true
+},{
     column: "QuantityOfOrder",
     summaryType: "sum",
     displayFormat: "{0}",
@@ -157,6 +163,19 @@ var grid = $('#grid').dxDataGrid({
     dataSource: description_data,
     keyExpr: 'ID',
     columns: columns_data,
+    paging: {//Chia page trang web
+        enabled: false,
+    },
+    // pager : {
+    //     visible: true,
+    // },
+    scrolling: {
+        columnRenderingMode:"standard",
+        mode:"standard",
+        scrollByContent:true,
+    },
+    showColumnLines: true,
+    showRowLines: true,
     showBorders: true,
     wordWrapEnabled: true,
     summary: {
@@ -168,7 +187,7 @@ var grid = $('#grid').dxDataGrid({
 var onRowPrepared = function (e) {
     // console.log(e);
     if(e.rowType == "header") {
-        e.rowElement.css('background', '#FFBF9B');
+        e.rowElement.css('background', '#f8cbad');
         return;    
     }
     

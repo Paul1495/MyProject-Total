@@ -84,7 +84,7 @@ var grid = $('#grid').dxDataGrid({
 var onRowPrepared = function (e) {
     // console.log(e);
     if(e.rowType == "header") {
-        e.rowElement.css('background', '#FFBF9B');
+        e.rowElement.css('background', '#f8cbad');
         return;
     }
 };
