@@ -2,7 +2,24 @@ import {
     data
 } from '../data/data_STT504A.js';
 
-// Set up column (permanent) 
+var beginTime = new Date();
+beginTime.setDate(beginTime.getDate())
+beginTime.setHours(8);
+beginTime.setMinutes(0);
+beginTime.setMilliseconds(0);
+
+var finishTime = new Date();
+
+if((finishTime-beginTime)/1000/60 < 540) {
+    var time = 0;
+} else {
+    time = (finishTime-beginTime)/1000/60;
+};
+console.log(time);
+
+
+
+// Set up column (permanent) 5
 const columns_data = [
     {
         dataField: "Factory",
@@ -54,11 +71,17 @@ const columns_data = [
             calculateCellValue: (rowData) => {
                 rowData["Rate"] = rowData["KeyStage"] / rowData["Target"];
                 return rowData["Rate"];
-            } 
+            }
         }]
     },{
         dataField:"Efficiency",
-        caption:"效率Hiệu suất"
+        caption:"效率Hiệu suất",
+        dataType: "percent",
+        format: '#0.00%',
+        calculateCellValue: (rowData) => {
+            rowData["Efficiency"] = (rowData["Sam"]*rowData["KeyStage"]) / (rowData["Real"]*time);
+            return rowData["Efficiency"];
+        }
     }
 ];
 
@@ -100,8 +123,90 @@ const grid = $('#grid').dxDataGrid({
            SUM("KeyStage"),
            SUM("CheckStage"),
            SUM("Lack"),
+        {
+            //Set format, position to show result after processing
+            name:"SelectedRateSummary",
+            showInColumn: "Rate",
+            summaryType: "custom",
+            displayFormat: "{0}",
+            valueFormat: "#0.00%",
+            showInGroupFooter: false,
+            alignByColumn: true
+        },{
+            name:"SelectedEfficencySummary",
+            showInColumn: "Efficiency",
+            summaryType: "custom",
+            displayFormat: "{0}",
+            valueFormat: "#0.00%",
+            showInGroupFooter: false,
+            alignByColumn: true 
+        }
         ],
-      },
+        totalItems: [{
+            column: "StyleNo",
+            summaryType: "count",
+            displayFormat: "汇总Tổng",
+            showInGroupFooter: false,
+            alignByColumn: true
+        },  
+            SUM("Staff"),
+            SUM("Real"),
+            SUM("Target"),
+            SUM("KeyStage"),
+            SUM("CheckStage"),
+            SUM("Lack"),
+        {
+            name:"SelectedRateSummary",
+            showInColumn: "Rate",
+            summaryType: "custom",
+            displayFormat: "{0}",
+            valueFormat: "#0.00%",
+            showInGroupFooter: false,
+            alignByColumn: true    
+        },{
+            // name:"SelectedEfficencySummary",
+            // showInColumn: "Efficiency",
+            // summaryType: "custom",
+            // displayFormat: "{0}",
+            // valueFormat: "#0.00%",
+            // showInGroupFooter: false,
+            // alignByColumn: true 
+        }
+        ],
+         //Set phần tính toán summary để được giá trị tính % tại 1 cột tỷ lệ chia theo grroup
+        calculateCustomSummary(e) {
+            if (e.name == "SelectedEfficencySummary") {
+                if (e.summaryProcess == "start") {
+                    e.samTotal = 0;
+                    e.keyStageTotal = 0;
+                    e.realTotal = 0;
+                }
+                else if (e.summaryProcess == "calculate") {
+                    e.samTotal += e.value.Sam
+                    e.keyStageTotal += e.value.KeyStage
+                    e.realTotal += e.value.Real
+                }
+                else if (e.summaryProcess == "finalize") {
+                    e.totalValue = Math.round(((e.samTotal * e.keyStageTotal) / (e.realTotal * time) + Number.EPSILON) * 10000) / 10000;
+                }
+            }
+
+            if (e.name == "SelectedRateSummary") {
+                if (e.summaryProcess == "start") {
+                    e.targetTotal = 0;
+                    e.keyStageTotal = 0;
+                }
+                else if (e.summaryProcess == "calculate") {
+                    e.keyStageTotal += e.value.KeyStage
+                    e.targetTotal += e.value.Target
+                }
+                else if (e.summaryProcess == "finalize") {
+                    e.totalValue = Math.round((e.keyStageTotal / e.targetTotal + Number.EPSILON) * 10000) / 10000;
+                }
+            }
+           
+        },
+    },
     
 }).dxDataGrid('instance');
 
@@ -135,11 +240,6 @@ const onCellPrepared = function (e) {
                     e.cellElement.css('background', '#9bc2e6');
                     }      
     }
-    
-    // if(e.rowType === "groupFooter"){
-    //     e.cellElement.css({'background':'#FFD966'});
-    //     return;
-    // }
 };
 
 grid.option('onCellPrepared', onCellPrepared);

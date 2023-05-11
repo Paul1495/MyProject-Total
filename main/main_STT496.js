@@ -18,6 +18,7 @@ $.each(listLine, (i, line) => {//Lặp qua từng phần tử trong biến listL
     
     $.each(orders, (y, order) => {//Lặp qua từng phần tử trong mảng chứa dữ liệu Zdcode duy nhất của từng chuyền
         const orderData = lineData.filter(z => z.Zdcode === order)// So sánh với dữ liệu trong lineData để lấy ngược lại tất cả các giá trị trong lineData theo Zdcode
+        console.log(orderData);
         const orderDetail = orderDetails.find(z => z.Zdcode === order);//Set điều kiện để lấy các thông tin trong orderDetail để đẩy vào combine
         const target = targets.find(z => z.Zdcode === order && z.Workline === line)// Set điều kiện để lấy targetQuantity 
         const combine = {

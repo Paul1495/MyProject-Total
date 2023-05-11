@@ -179,7 +179,7 @@ var grid = $('#grid').dxDataGrid({
     showBorders: true,
     wordWrapEnabled: true,
     summary: {
-        totalItems: summary_data
+        totalItems: summary_data,
     },
 }).dxDataGrid('instance');
 
@@ -190,11 +190,6 @@ var onRowPrepared = function (e) {
         e.rowElement.css('background', '#f8cbad');
         return;    
     }
-    
-    if(e.rowType == "totalFooter") {
-        e.rowElement.css('background', '#c6e0b4')
-        return;
-    } 
 };
 
 grid.option('onRowPrepared', onRowPrepared);
