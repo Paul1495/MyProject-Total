@@ -285,9 +285,6 @@ var grid = $('#grid').dxDataGrid({
     paging: {//Chia page trang web
         enabled: false,
     },
-    // pager : {
-    //     visible: true,
-    // },
     scrolling: {
         columnRenderingMode:"standard",
         mode:"standard",
