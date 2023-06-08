@@ -27,204 +27,168 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
     <link rel="stylesheet" href="/font/font.css" />
-    <link rel="stylesheet" href="/test/style_project.css" />
+    <link rel="stylesheet" href="/test/style_project_version2.css" />
     <title>Document</title>
   </head>
   <body>
     <div class="row">
       <div class="col-3">
-        <div class="card mb-3">
-          <div
-            class="card-header d-flex align-items-center bg-inverse bg-opacity-10"
-          >
+        <div class="card mb-3 kanban-box">
+          <div class="box-header">
             <span
-              class="flex-grow-1 fw-400"
+              class="flex-grow-1 fw-400 padding"
               style="
                 color: #7defe6;
                 font-family: ChakraPetch, sans-serif;
-                background: rgba(125, 239, 230, 0.2);
-                font-size: 20px;
+                font-size: 18px;
               "
               >FACTORY VNA</span
             >
           </div>
 
-          <div class="card-body">
-            <div class="report">
-              <p id="yearTotalVNA"></p>
-              <p id="yearTargetVNA"></p>
-              <p id="dailyQuantityVNA"></p>
-              <p id="quantityVNA"></p>
-              <p id="workerVNA"></p>
-              <p id="attendantVNA"></p>
+          <div class="card-body kanban">
+            <div class="row">
+              <div class="report col-6">
+                <div class="content-grid-columns">
+                  <p>DAILY QUANTITY:</p>
+                  <p id="dailyQuantityVNA"></p>
+                  <p>YEAR TARGET QUANTITY:</p>
+                  <p id="yearTargetVNA"></p>
+                  <p>YEAR QUANTITY:</p>
+                  <p id="yearTotalVNA"></p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="circle">
+                  <p class="text-circle">70%</p>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div class="card-arrow">
-            <div class="card-arrow-top-left"></div>
-            <div class="card-arrow-top-right"></div>
-            <div class="card-arrow-bottom-left"></div>
-            <div class="card-arrow-bottom-right"></div>
           </div>
         </div>
       </div>
       <div class="col-3">
-        <div class="card mb-3">
-          <div
-            class="card-header d-flex align-items-center bg-inverse bg-opacity-10"
-          >
+        <div class="card mb-3 kanban-box">
+          <div class="box-header">
             <span
               class="flex-grow-1 fw-400"
               style="
                 color: #7defe6;
                 font-family: ChakraPetch, sans-serif;
-                background: rgba(125, 239, 230, 0.2);
-                font-size: 20px;
+                font-size: 17px;
               "
               >FACTORY VNE</span
             >
           </div>
 
-          <div class="card-body">
-            <div class="report">
-              <p id="yearTotalVNE"></p>
-              <p id="yearTargetVNE"></p>
-              <p id="dailyQuantityVNE"></p>
-              <p id="quantityVNE"></p>
-              <p id="workerVNE"></p>
-              <p id="attendantVNE"></p>
+          <div class="card-body kanban">
+            <div class="row">
+              <div class="report col-6">
+                <div class="content-grid-columns">
+                  <p>DAILY QUANTITY:</p>
+                  <p id="dailyQuantityVNE"></p>
+                  <p>YEAR TARGET QUANTITY:</p>
+                  <p id="yearTargetVNE"></p>
+                  <p>YEAR QUANTITY:</p>
+                  <p id="yearTotalVNE"></p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="circle">
+                  <p class="text-circle">75%</p>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div class="card-arrow">
-            <div class="card-arrow-top-left"></div>
-            <div class="card-arrow-top-right"></div>
-            <div class="card-arrow-bottom-left"></div>
-            <div class="card-arrow-bottom-right"></div>
           </div>
         </div>
       </div>
       <div class="col-3">
-        <div class="card mb-3">
-          <div
-            class="card-header d-flex align-items-center bg-inverse bg-opacity-10"
-          >
+        <div class="card mb-3 kanban-box">
+          <div class="box-header">
             <span
               class="flex-grow-1 fw-400"
               style="
                 color: #7defe6;
                 font-family: ChakraPetch, sans-serif;
-                background: rgba(125, 239, 230, 0.2);
-                font-size: 20px;
+                font-size: 17px;
               "
               >FACTORY VNC</span
             >
           </div>
 
-          <div class="card-body">
-            <div class="report">
-              <p id="yearTotalVNC"></p>
-              <p id="yearTargetVNC"></p>
-              <p id="dailyQuantityVNC"></p>
-              <p id="quantityVNC"></p>
-              <p id="workerVNC"></p>
-              <p id="attendantVNC"></p>
+          <div class="card-body kanban">
+            <div class="row">
+              <div class="report col-6">
+                <div class="content-grid-columns">
+                  <p>DAILY QUANTITY:</p>
+                  <p id="dailyQuantityVNC"></p>
+                  <p>YEAR TARGET QUANTITY:</p>
+                  <p id="yearTargetVNC"></p>
+                  <p>YEAR QUANTITY:</p>
+                  <p id="yearTotalVNC"></p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="circle">
+                  <p class="text-circle">69%</p>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div class="card-arrow">
-            <div class="card-arrow-top-left"></div>
-            <div class="card-arrow-top-right"></div>
-            <div class="card-arrow-bottom-left"></div>
-            <div class="card-arrow-bottom-right"></div>
           </div>
         </div>
       </div>
       <div class="col-3">
-        <div class="card mb-3">
-          <div
-            class="card-header d-flex align-items-center bg-inverse bg-opacity-10"
-          >
+        <div class="card mb-3 kanban-box">
+          <div class="box-header">
             <span
               class="flex-grow-1 fw-400"
               style="
                 color: #7defe6;
                 font-family: ChakraPetch, sans-serif;
-                background: rgba(125, 239, 230, 0.2);
-                font-size: 20px;
+                font-size: 17px;
               "
               >FACTORY VND</span
             >
           </div>
 
-          <div class="card-body">
-            <div class="report">
-              <p id="yearTotalVND"></p>
-              <p id="yearTargetVND"></p>
-              <p id="dailyQuantityVND"></p>
-              <p id="quantityVND"></p>
-              <p id="workerVND"></p>
-              <p id="attendantVND"></p>
+          <div class="card-body kanban">
+            <div class="row">
+              <div class="report col-6">
+                <div class="content-grid-columns">
+                  <p>DAILY QUANTITY:</p>
+                  <p id="dailyQuantityVND"></p>
+                  <p>YEAR TARGET QUANTITY:</p>
+                  <p id="yearTargetVND"></p>
+                  <p>YEAR QUANTITY:</p>
+                  <p id="yearTotalVND"></p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="circle">
+                  <p class="text-circle">72%</p>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div class="card-arrow">
-            <div class="card-arrow-top-left"></div>
-            <div class="card-arrow-top-right"></div>
-            <div class="card-arrow-bottom-left"></div>
-            <div class="card-arrow-bottom-right"></div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-6">
-        <div class="card mb-3">
+      <div>
+        <div class="card mb-3 table">
           <div
             class="card-header d-flex align-items-center bg-inverse bg-opacity-10"
+            style="background: rgba(125, 239, 230, 0.2)"
           >
             <span
               class="flex-grow-1 fw-400"
               style="
                 color: #7defe6;
                 font-family: ChakraPetch, sans-serif;
-                background: rgba(125, 239, 230, 0.2);
                 font-size: 20px;
               "
               >RMIV Factories Efficiency In Last 30 Days</span
-            >
-          </div>
-
-          <div class="card-body">
-            <div class="dx-viewport demo-container">
-              <div id="chart"></div>
-            </div>
-          </div>
-
-          <div class="card-arrow">
-            <div class="card-arrow-top-left"></div>
-            <div class="card-arrow-top-right"></div>
-            <div class="card-arrow-bottom-left"></div>
-            <div class="card-arrow-bottom-right"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6">
-        <div class="card mb-3">
-          <div
-            class="card-header d-flex align-items-center bg-inverse bg-opacity-10"
-          >
-            <span
-              class="flex-grow-1 fw-400"
-              style="
-                color: #7defe6;
-                font-family: ChakraPetch, sans-serif;
-                background: rgba(125, 239, 230, 0.2);
-                font-size: 20px;
-              "
-              >RMIV Factories Output In Last 30 Days</span
             >
           </div>
 
@@ -242,8 +206,40 @@
           </div>
         </div>
       </div>
+
+      <div>
+        <div class="card mb-3 table">
+          <div
+            class="card-header d-flex align-items-center bg-inverse bg-opacity-10"
+            style="background: rgba(125, 239, 230, 0.2)"
+          >
+            <span
+              class="flex-grow-1 fw-400"
+              style="
+                color: #7defe6;
+                font-family: ChakraPetch, sans-serif;
+                font-size: 20px;
+              "
+              >RMIV Factories Output In Last 30 Days</span
+            >
+          </div>
+
+          <div class="card-body">
+            <div class="dx-viewport demo-container">
+              <div id="chart"></div>
+            </div>
+          </div>
+
+          <div class="card-arrow">
+            <div class="card-arrow-top-left"></div>
+            <div class="card-arrow-top-right"></div>
+            <div class="card-arrow-bottom-left"></div>
+            <div class="card-arrow-bottom-right"></div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script src="/test/main_project.js"></script>
+    <script src="/test/main_project_version2.js"></script>
   </body>
 </html>

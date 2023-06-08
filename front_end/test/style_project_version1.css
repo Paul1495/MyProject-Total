@@ -320,12 +320,13 @@ body {
   --bs-bg-opacity: 0.1;
 }
 
-.bg-inverse {
+/* .bg-inverse {
   background-color: rgba(
     var(--bs-inverse-rgb),
     var(--bs-bg-opacity)
   ) !important;
-}
+} */
+
 .align-items-center {
   align-items: center !important;
 }
@@ -552,3 +553,19 @@ html {
   font-weight: var(--font-weight);
   margin: 0;
 }
+
+.col-6 svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* background-image: url(data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='154' height='154'%3E%3Cdefs%3E%3ClinearGradient x1='50%25' y1='98.965%25' x2='50%25' y2='0%25' id='b'%3E%3Cstop stop-color='%23fc2567' stop-opacity='.14' offset='0%25'/%3E%3Cstop stop-color='%23e309ba' stop-opacity='.732' offset='100%25'/%3E%3C/linearGradient%3E%3ClinearGradient x1='50%25' y1='98.965%25' x2='50%25' y2='0%25' id='c'%3E%3Cstop stop-color='%23fc2567' stop-opacity='.14' offset='0%25'/%3E%3Cstop stop-color='%23ba08b5' stop-opacity='.732' offset='100%25'/%3E%3C/linearGradient%3E%3ClinearGradient x1='50%25' y1='0%25' x2='50%25' y2='98.965%25' id='d'%3E%3Cstop stop-color='%23fc2567' stop-opacity='0' offset='0%25'/%3E%3Cstop stop-color='%23fa2697' stop-opacity='.732' offset='89.51%25'/%3E%3Cstop stop-color='%23ba08b5' stop-opacity='.732' offset='100%25'/%3E%3C/linearGradient%3E%3ClinearGradient x1='50%25' y1='0%25' x2='50%25' y2='100%25' id='e'%3E%3Cstop stop-color='%23fc2567' stop-opacity='.718' offset='0%25'/%3E%3Cstop stop-color='%23ba08b5' offset='100%25'/%3E%3C/linearGradient%3E%3ClinearGradient x1='50%25' y1='.503%25' x2='50%25' y2='100%25' id='f'%3E%3Cstop stop-color='%23fc2567' offset='0%25'/%3E%3Cstop stop-color='%23ba08b5' offset='100%25'/%3E%3C/linearGradient%3E%3CradialGradient cx='50%25' cy='50%25' fx='50%25' fy='50%25' r='50%25' id='a'%3E%3Cstop stop-color='%23fc2567' stop-opacity='.669' offset='0%25'/%3E%3Cstop stop-color='%23ba08b5' stop-opacity='0' offset='100%25'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg transform='translate(3.52 2.52)' fill='none' fill-rule='evenodd'%3E%3Ccircle fill='url(%23a)' style='mix-blend-mode:hard-light' cx='74' cy='74' r='74'/%3E%3Ccircle fill='url(%23a)' style='mix-blend-mode:hard-light' opacity='.506' cx='74' cy='74' r='74'/%3E%3Cg transform='translate(.812 .492)'%3E%3Ccircle stroke-opacity='.229' stroke='%23248AF9' stroke-width='5.88' cx='72.8' cy='73.6' r='50.4'/%3E%3Cpath d='M130.986 74.589c0-32.695-26.505-59.2-59.2-59.2' stroke-opacity='.732' stroke='%23e309ba' stroke-width='4.776' stroke-linejoin='round' stroke-dasharray='1.6,5.600000000000001'/%3E%3Cpath d='M15.786 72.189c0 32.695 26.505 59.2 59.2 59.2'/%3E%3Cpath d='M70.488 114.8c22.095-5.156 38.283-22.43 43.2-43.2' stroke='url(%23b)' stroke-width='1.678' stroke-linejoin='round' stroke-dasharray='0.6711599826812744,3.691379928588868' transform='translate(15.698 14.989)'%3E%3C/path%3E%3Cpath d='M48.888.4C26.054 4.453 8.608 21.144 2.488 42' stroke='url(%23c)' stroke-width='1.678' stroke-linejoin='round' stroke-dasharray='0.6711599826812744,3.691379928588868' transform='translate(15.698 14.989)'/%3E%3Cpath fill='%23e309ba' d='M117.341 30.888l1.606 1.784-5.35 4.817-1.606-1.783z'/%3E%3Cg%3E%3CanimateTransform attributeName='transform' attributeType='XML' type='rotate' from='-180 72.8 73.6' to='180 72.8 73.6' dur='5s' repeatCount='indefinite'/%3E%3Cpath d='M74.192 74.163C74.192 33.204 41.14 0 .365 0' stroke='url(%23d)' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' transform='rotate(-90 37.279 37.082)'/%3E%3Cpath d='M146.998 147.699c0-40.96-33.054-74.164-73.827-74.164' stroke='url(%23d)' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' transform='rotate(90 110.084 110.617)'/%3E%3Cpath d='M147.363 74.528c0-40.96-33.054-74.163-73.828-74.163' stroke='url(%23d)' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M73.828 147.334c0-40.96-33.054-74.163-73.828-74.163' stroke='url(%23d)' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' transform='rotate(-180 36.914 110.252)'/%3E%3C/g%3E%3Ccircle stroke='url(%23e)' stroke-width='2.4' cx='73.171' cy='73.535' r='65.6'/%3E%3Cpath d='M123.2 73.6c0-27.835-22.565-50.4-50.4-50.4-27.835 0-50.4 22.565-50.4 50.4 0 27.835 22.565 50.4 50.4 50.4' stroke='url(%23f)' stroke-width='5.88' stroke-linecap='round' transform='rotate(45 72.8 73.6)'%3E%3CanimateTransform attributeName='transform' attributeType='XML' type='rotate' from='180 72.8 73.6' to='-180 72.8 73.6' dur='5s' repeatCount='indefinite'/%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E);
+    color: white;
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
