@@ -216,7 +216,7 @@ $(() => {
 
 function abbreviateNumber(value) {
   var newValue = value;
-  if (value >= 10000) {
+  if (value >= 10000000) {
     var suffixes = ["", "K", "M", "B", "T"];
     var suffixNum = Math.floor(("" + value).length / 3);
     var shortValue = "";
@@ -240,7 +240,7 @@ function abbreviateNumber(value) {
 
 const dataYearTotalVNA = 50000000;
 const dataYearTargetVNA = 10000000000;
-const dailyQuantityVNA = 70000;
+const dailyQuantityVNA = 60000;
 $("#yearTotalVNA").text(`${abbreviateNumber(dataYearTotalVNA)}`);
 $("#yearTargetVNA").text(`${abbreviateNumber(dataYearTargetVNA)}`);
 $("#dailyQuantityVNA").text(`${abbreviateNumber(dailyQuantityVNA)}`);
