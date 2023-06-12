@@ -2,11 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
     />
     <script
       type="text/javascript"
@@ -20,210 +21,24 @@
       type="text/javascript"
       src="https://cdn3.devexpress.com/jslib/22.2.4/js/dx.all.js"
     ></script>
-    <link rel="stylesheet" href="/font/font.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <link rel="stylesheet" href="/test/style_test.css" />
     <title>Document</title>
   </head>
   <body>
-    <div class="row">
-      <div class="col-xl-3 col-lg-6">
-        <div class="card mb-3">
-          <div
-            class="card-header d-flex align-items-center bg-inverse bg-opacity-10"
-          >
-            <span
-              class="flex-grow-1 fw-400"
-              style="
-                color: #7defe6;
-                font-family: ChakraPetch, sans-serif;
-                background: rgba(125, 239, 230, 0.2);
-                font-size: 20px;
-              "
-              >FACTORY VNA</span
-            >
-          </div>
-
-          <div class="card-body">
-            <div class="reportVNA">
-              <div class="row">
-                <div class="col-md-4">
-                  <div id="workerVNA"></div>
-                </div>
-                <div class="col-md-4">
-                  <div id="quantityVNA"></div>
-                </div>
-                <div class="col-md-4">
-                  <div id="totalQuantityVNA"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-arrow">
-            <div class="card-arrow-top-left"></div>
-            <div class="card-arrow-top-right"></div>
-            <div class="card-arrow-bottom-left"></div>
-            <div class="card-arrow-bottom-right"></div>
-          </div>
-        </div>
+    <div class="demo-container">
+      <div class="row">
+        <div class="col-6 first-floor" id="grid1"></div>
+        <div class="col-6 first-floor" id="grid2"></div>
       </div>
-      <div class="col-xl-3 col-lg-6">
-        <div class="card mb-3">
-          <div
-            class="card-header d-flex align-items-center bg-inverse bg-opacity-10"
-          >
-            <span
-              class="flex-grow-1 fw-400"
-              style="
-                color: #7defe6;
-                font-family: ChakraPetch, sans-serif;
-                background: rgba(125, 239, 230, 0.2);
-                font-size: 20px;
-              "
-              >FACTORY VNE</span
-            >
-          </div>
-
-          <div class="card-body">
-            <div class="reportVNE">
-              <div class="row">
-                <div class="col-md-4">
-                  <div id="workerVNE"></div>
-                </div>
-                <div class="col-md-4">
-                  <div id="quantityVNE"></div>
-                </div>
-                <div class="col-md-4">
-                  <div id="totalQuantityVNE"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-arrow">
-            <div class="card-arrow-top-left"></div>
-            <div class="card-arrow-top-right"></div>
-            <div class="card-arrow-bottom-left"></div>
-            <div class="card-arrow-bottom-right"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-lg-6">
-        <div class="card mb-3">
-          <div
-            class="card-header d-flex align-items-center bg-inverse bg-opacity-10"
-          >
-            <span
-              class="flex-grow-1 fw-400"
-              style="
-                color: #7defe6;
-                font-family: ChakraPetch, sans-serif;
-                background: rgba(125, 239, 230, 0.2);
-                font-size: 20px;
-              "
-              >FACTORY VNC</span
-            >
-          </div>
-
-          <div class="card-body">
-            <div class="reportVNC">
-              <div class="row">
-                <div class="col-md-4">
-                  <div id="workerVNC"></div>
-                </div>
-                <div class="col-md-4">
-                  <div id="quantityVNC"></div>
-                </div>
-                <div class="col-md-4">
-                  <div id="totalQuantityVNC"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-arrow">
-            <div class="card-arrow-top-left"></div>
-            <div class="card-arrow-top-right"></div>
-            <div class="card-arrow-bottom-left"></div>
-            <div class="card-arrow-bottom-right"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-lg-6">
-        <div class="card mb-3">
-          <div
-            class="card-header d-flex align-items-center bg-inverse bg-opacity-10"
-          >
-            <span
-              class="flex-grow-1 fw-400"
-              style="
-                color: #7defe6;
-                font-family: ChakraPetch, sans-serif;
-                background: rgba(125, 239, 230, 0.2);
-                font-size: 20px;
-              "
-              >FACTORY VND</span
-            >
-          </div>
-
-          <div class="card-body">
-            <div class="reportVND">
-              <div class="row">
-                <div class="col-md-4">
-                  <div id="workerVND"></div>
-                </div>
-                <div class="col-md-4">
-                  <div id="quantityVND"></div>
-                </div>
-                <div class="col-md-4">
-                  <div id="totalQuantityVND"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-arrow">
-            <div class="card-arrow-top-left"></div>
-            <div class="card-arrow-top-right"></div>
-            <div class="card-arrow-bottom-left"></div>
-            <div class="card-arrow-bottom-right"></div>
-          </div>
-        </div>
+      <div class="row">
+        <div class="col-8 second-floor" id="grid3"></div>
+        <div class="col-4 second-floor" id="grid4"></div>
       </div>
     </div>
-
-    <div class="col-xl-6">
-      <div class="card mb-3">
-        <div
-          class="card-header d-flex align-items-center bg-inverse bg-opacity-10"
-        >
-          <span
-            class="flex-grow-1 fw-400"
-            style="
-              color: #7defe6;
-              font-family: ChakraPetch, sans-serif;
-              background: rgba(125, 239, 230, 0.2);
-              font-size: 20px;
-            "
-            >RMIV Factories Efficiency In Last 30 Days</span
-          >
-        </div>
-
-        <div class="card-body">
-          <div class="dx-viewport demo-container">
-            <div id="chart"></div>
-          </div>
-        </div>
-
-        <div class="card-arrow">
-          <div class="card-arrow-top-left"></div>
-          <div class="card-arrow-top-right"></div>
-          <div class="card-arrow-bottom-left"></div>
-          <div class="card-arrow-bottom-right"></div>
-        </div>
-      </div>
-    </div>
-
     <script src="/test/main_test.js"></script>
   </body>
 </html>

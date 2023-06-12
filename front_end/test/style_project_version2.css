@@ -67,7 +67,7 @@ body {
 .card-title {
   color: #7defe6;
   font-family: ChakraPetch, sans-serif;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 /* Draw line on top and bottom */
@@ -279,7 +279,7 @@ body {
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-  background-size: 95% 95%;
+  background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -287,6 +287,10 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='294' height='96'%3E%3Cdefs%3E%3ClinearGradient x1='0%25' y1='0%25' x2='100%25' y2='0%25' id='a'%3E%3Cstop stop-color='%2300FFF1' offset='0%25'/%3E%3Cstop stop-color='%2300FFDE' stop-opacity='0' offset='100%25'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath stroke='%2300B8A0' stroke-width='1.584' fill-opacity='.261' fill='%2335419D' d='M1 1h173.542l18.897 15.237h99.017v10.954l-.436 59.138h-94.07l-13.07 8.127h-77.694l-14.017-8.127H1z'/%3E%3Cpath stroke='%2300FFDE' stroke-width='1.267' fill-opacity='.209' fill='%2300FFDE' d='M183.16 2h11.634l13.71 11.088H196.87zM202.168 2h11.634l13.71 11.088h-11.634zM221.176 2h11.634l13.71 11.088h-11.634z'/%3E%3Cpath stroke='%2300FFDE' stroke-width='.95' fill-opacity='.209' fill='%2300FFDE' d='M240.184 2h11.634l13.71 11.088h-11.634z'/%3E%3Cpath stroke='%2300FFDE' stroke-width='1.267' fill-opacity='.209' fill='%2300FFDE' d='M259.192 2h11.634l13.71 11.088h-11.634z'/%3E%3Cpath fill='%2300FFDE' d='M108.712 86.536h76.032v1.584h-76.032z'/%3E%3Cpath fill='url(%23a)' d='M196 90h95.04v3.168H196z' transform='translate(1 1)'/%3E%3Cpath fill='url(%23a)' transform='matrix(-1 0 0 1 96.04 1)' d='M0 90h95.04v3.168H0z'/%3E%3Cpath fill='%2300FFDE' d='M5.752 5.752h76.032V8.92H5.752z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
+.row .col-3 .card .box-header {
+  margin-right: 10%;
+  margin-top: 1%;
+}
 /* Define text inside the box */
 .report p,
 span,
@@ -309,9 +313,9 @@ sub {
   font-size: 28px;
   font-family: var(--font-text);
   display: block;
-  margin-left: auto;
+  margin-left: 11px;
   margin-right: auto;
-  margin-top: auto;
+  margin-top: 6px;
   width: 90%;
   height: 130%;
   background-repeat: no-repeat;
@@ -329,11 +333,6 @@ sub {
   margin: -15% 0% 10% -7%;
   font-weight: 500;
   font-size: 28px;
-}
-
-.row .col-3 .card .box-header {
-  margin-right: 15%;
-  margin-top: 1%;
 }
 
 .row .col-3 .card .card-body {
@@ -363,4 +362,32 @@ sub {
 
 .text-center {
   margin-top: 18px;
+}
+
+/* Animation kanban-box */
+.card.mb-3.kanban-box {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0);
+  transition: all 0.5s ease-in-out;
+}
+
+.card.mb-3.kanban-box:before {
+  content: " ";
+  display: block;
+  width: 50px;
+  height: 400px;
+  background: rgba(125, 239, 230, 0.3);
+  position: absolute;
+  top: -100px;
+  left: -200px;
+  transform: rotate(-45deg);
+  transition: all 0.5s ease-in-out;
+}
+
+.card.mb-3.kanban-box:hover:before {
+  margin-left: 300%;
+}
+
+.card.mb-3.kanban-box:hover {
+  border: 1px solid rgba(125, 239, 230, 1);
 }
