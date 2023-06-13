@@ -1,0 +1,58 @@
+.dx-datagrid-summary-item {
+  color: black !important;
+  text-align: center !important;
+  font-weight: 500 !important ;
+  vertical-align: middle !important;
+}
+
+html {
+  background: #111117;
+  box-shadow: 0 0 300px rgba(0, 255, 255, 0.2) inset;
+  animation-name: glowing;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+body {
+  background-color: transparent;
+}
+
+.demo-container {
+  background-color: transparent;
+}
+
+.dx-datagrid {
+  background-color: transparent;
+}
+
+.dx-datagrid-headers .dx-header-row {
+  background-color: transparent;
+}
+
+.first-floor {
+  padding: 10px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+  box-shadow: 7px 7px rgba(125, 239, 230, 0.2);
+  transition: all 0.4s ease;
+}
+
+.first-floor:hover {
+  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+  box-shadow: 7px 7px rgba(125, 239, 230, 0.8);
+}
+
+.second-floor {
+  padding: 10px 10px 10px 10px;
+  margin: 50px 10px 10px 10px;
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+  box-shadow: 7px 7px rgba(125, 239, 230, 0.2);
+  transition: all 0.4s ease;
+}
+
+.second-floor:hover {
+  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+  box-shadow: 7px 7px rgba(125, 239, 230, 0.8);
+}

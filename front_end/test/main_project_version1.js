@@ -1,4 +1,9 @@
-// import { VIEW_GRID_OPTION } from "../config_dataGrid/VIEW_GRID_OPTION.js";
+const colorText = "#7defe6";
+const colorBorder = "rgba(81, 99, 97, 0.25)";
+const colorHeader = "rgba(125, 239, 230, 0.2)";
+const fontText = "ChakraPetch,sans-serif";
+const colorGrid = "#516361";
+const colorPallete = ["#7defe6", "rgba(125, 239, 230, 0.2)"];
 
 const description_data1 = [
   {
@@ -7,6 +12,8 @@ const description_data1 = [
     SaleNo: "20143667",
     PlanQuantity: "Không có kế hoạch",
     ActualQuantity: 1,
+    Rate: "",
+    Noted: "NG",
   },
   {
     Problem: "",
@@ -14,6 +21,8 @@ const description_data1 = [
     SaleNo: "20143667",
     PlanQuantity: "Không có kế hoạch",
     ActualQuantity: 1,
+    Rate: "",
+    Noted: "NG",
   },
   {
     Problem: "",
@@ -21,6 +30,8 @@ const description_data1 = [
     SaleNo: "20143667",
     PlanQuantity: "Không có kế hoạch",
     ActualQuantity: 1,
+    Rate: "",
+    Noted: "NG",
   },
   {
     Problem: "",
@@ -28,6 +39,8 @@ const description_data1 = [
     SaleNo: "20143667",
     PlanQuantity: 188,
     ActualQuantity: 92,
+    Rate: "48.93%",
+    Noted: "OK",
   },
   {
     Problem: "",
@@ -35,6 +48,8 @@ const description_data1 = [
     SaleNo: "20143667",
     PlanQuantity: 129,
     ActualQuantity: 214,
+    Rate: "165.89%",
+    Noted: "OK",
   },
 ];
 
@@ -71,14 +86,15 @@ const columns_data1 = [
 
 const grid1 = $("#grid1")
   .dxDataGrid({
-    // ...VIEW_GRID_OPTION,
     dataSource: description_data1,
     columns: columns_data1,
-    showBorders: true,
+    wordWrapEnabled: true,
+    // showBorders: true,
     showRowLines: true,
     onRowPrepared: function (e) {
       if (e.rowType == "header") {
-        e.rowElement.css("background", "#f8cbad");
+        e.rowElement.css("background", colorHeader);
+        e.rowElement.css("font-family", fontText);
         return;
       }
     },
@@ -86,15 +102,17 @@ const grid1 = $("#grid1")
       e.cellElement.css("text-align", "center");
       e.cellElement.css("vertical-align", "middle");
       if (e.rowType == "header") {
-        e.cellElement.css("color", "#000000");
+        e.cellElement.css("color", colorText);
         e.cellElement.css("font-weight", "bold");
-        if (
-          e.column.dataField === "ProductOrder" ||
-          e.column.dataField === "Description"
-        ) {
-          e.cellElement.css({ background: "yellow" });
-        }
-        return;
+        e.cellElement.css("border-color", colorBorder);
+      }
+      if (e.rowType == "data") {
+        e.cellElement.css("color", colorText);
+        e.cellElement.css("border-color", colorBorder);
+        e.cellElement.css("font-family", fontText);
+        // if (e.column.valueField === "NG") {
+        //   e.cellElement.css("background", "rgba(125, 239, 230, 0.2)");
+        // }
       }
     },
   })
@@ -167,14 +185,14 @@ const columns_data2 = [
 
 const grid2 = $("#grid2")
   .dxDataGrid({
-    // ...VIEW_GRID_OPTION,
     dataSource: description_data2,
     columns: columns_data2,
-    showBorders: true,
     showRowLines: true,
+    wordWrapEnabled: true,
     onRowPrepared: function (e) {
       if (e.rowType == "header") {
-        e.rowElement.css("background", "#f8cbad");
+        e.rowElement.css("background", colorHeader);
+        e.rowElement.css("font-family", fontText);
         return;
       }
     },
@@ -182,15 +200,14 @@ const grid2 = $("#grid2")
       e.cellElement.css("text-align", "center");
       e.cellElement.css("vertical-align", "middle");
       if (e.rowType == "header") {
-        e.cellElement.css("color", "#000000");
+        e.cellElement.css("color", colorText);
         e.cellElement.css("font-weight", "bold");
-        if (
-          e.column.dataField === "ProductOrder" ||
-          e.column.dataField === "Description"
-        ) {
-          e.cellElement.css({ background: "yellow" });
-        }
-        return;
+        e.cellElement.css("border-color", colorBorder);
+      }
+      if (e.rowType == "data") {
+        e.cellElement.css("color", colorText);
+        e.cellElement.css("border-color", colorBorder);
+        e.cellElement.css("font-family", fontText);
       }
     },
   })
@@ -198,56 +215,126 @@ const grid2 = $("#grid2")
 
 const dataSource = [
   {
-    day: "Monday",
-    oranges: 3,
+    Name: "Duy",
+    Quantity: 300,
   },
   {
-    day: "Tuesday",
-    oranges: 2,
+    Name: "Thanh",
+    Quantity: 200,
   },
   {
-    day: "Wednesday",
-    oranges: 3,
+    Name: "Tùng",
+    Quantity: 150,
   },
   {
-    day: "Thursday",
-    oranges: 4,
+    Name: "Hồng",
+    Quantity: 170,
   },
   {
-    day: "Friday",
-    oranges: 6,
+    Name: "Dương",
+    Quantity: 400,
   },
   {
-    day: "Saturday",
-    oranges: 11,
+    Name: "Thắng",
+    Quantity: 450,
   },
   {
-    day: "Sunday",
-    oranges: 4,
+    Name: "Hiếu",
+    Quantity: 210,
+  },
+  {
+    Name: "Dung",
+    Quantity: 200,
+  },
+  {
+    Name: "Tuyên",
+    Quantity: 130,
+  },
+  {
+    Name: "Hoàn",
+    Quantity: 170,
+  },
+  {
+    Name: "Hưng",
+    Quantity: 55,
+  },
+  {
+    Name: "Hoa",
+    Quantity: 600,
+  },
+  {
+    Name: "Loan",
+    Quantity: 800,
   },
 ];
 
 const grid3 = $("#grid3")
   .dxChart({
     dataSource: dataSource,
+    commonAxisSettings: {
+      //chỉnh độ sáng tối, màu sắc của dòng kẻ
+      grid: {
+        color: colorGrid,
+        opacity: "25%",
+      },
+    },
+    argumentAxis: {
+      //Chỉnh định dạng của chữ và giá trị của trục hoành
+      label: {
+        font: {
+          color: colorText,
+          family: fontText,
+        },
+      },
+    },
+    valueAxis: {
+      label: {
+        customizeText() {
+          return `${this.valueText}`;
+        },
+        font: {
+          //Chỉnh định dạng của trục tung
+          color: colorText,
+          family: fontText,
+        },
+      },
+    },
+    legend: {
+      //Chỉnh định dạng của ô ghi chú VNA,VND, VNC, VNE
+      visible: true,
+      horizontalAlignment: "center",
+      verticalAlignment: "bottom",
+      font: {
+        color: colorText,
+        family: fontText,
+      },
+      itemTextPosition: "right",
+      margin: {
+        top: 20,
+      },
+      markerSize: 30,
+    },
     series: {
-      argumentField: "day",
-      valueField: "oranges",
-      name: "My oranges",
+      argumentField: "Name",
+      valueField: "Quantity",
+      name: "Quantity",
       type: "bar",
-      color: "#ffaa66",
+      color: "rgba(125, 239, 230, 0.8)",
+    },
+    size: {
+      height: 300,
     },
   })
   .dxChart("instance");
 
 const dataPie = [
   {
-    name: "OK",
-    area: 3,
+    name: "Đi làm",
+    quantity: 7000,
   },
   {
-    name: "NG",
-    area: 1,
+    name: "Không đi làm",
+    quantity: 3000,
   },
 ];
 
@@ -261,14 +348,20 @@ const legendSettings = {
 const seriesOptions = [
   {
     argumentField: "name",
-    valueField: "area",
+    valueField: "quantity",
     label: {
       visible: true,
       connector: {
         visible: true,
       },
+      font: {
+        family: fontText,
+        color: colorText,
+        size: 15,
+      },
       format: "fixedPoint",
       backgroundColor: "none",
+      wordWrap: "breakWord",
       customizeText(e) {
         return `${e.argumentText}\n${e.valueText}`;
       },
@@ -279,9 +372,13 @@ const seriesOptions = [
 const grid4 = $("#grid4")
   .dxPieChart({
     // sizeGroup: sizeGroupName,
-    palette: ["#a9d08e", "#c00000"],
+    palette: colorPallete,
     type: "doughnut",
-    title: "Frequency",
+    size: {
+      height: 300,
+      width: 440,
+    },
+    innerRadius: 0.48,
     legend: legendSettings,
     dataSource: dataPie,
     series: seriesOptions,

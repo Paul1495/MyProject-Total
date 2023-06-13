@@ -28,12 +28,14 @@ $(() => {
       height: 250,
     },
     commonAxisSettings: {
+      //chỉnh độ sáng tối, màu sắc của dòng kẻ
       grid: {
         color: colorGrid,
         opacity: "25%",
       },
     },
     argumentAxis: {
+      //Chỉnh định dạng của chữ và giá trị của trục hoành
       label: {
         font: {
           color: "#7defe6",
@@ -80,6 +82,7 @@ $(() => {
           return `${this.valueText}`;
         },
         font: {
+          //Chỉnh định dạng của trục tung
           color: colorText,
           family: fontFamily,
         },
@@ -89,6 +92,7 @@ $(() => {
       nameField: "Factory",
     },
     legend: {
+      //Chỉnh định dạng của ô ghi chú VNA,VND, VNC, VNE
       visible: true,
       horizontalAlignment: "center",
       verticalAlignment: "bottom",
