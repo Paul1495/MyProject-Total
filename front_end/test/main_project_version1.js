@@ -120,66 +120,71 @@ const grid1 = $("#grid1")
 
 const description_data2 = [
   {
-    Quantity: 100,
-    TargetQuantity: 150,
-    Abnormal: "",
-    Overtime: "Có tăng ca",
-    Attandent: 25,
+    Zdcode: "20143667",
+    Name: "Duy",
+    Quantity: 300,
+    Sam: 400,
+    GxNo: "697",
+    Rate: "75%",
   },
   {
-    Quantity: 10,
-    TargetQuantity: 100,
-    Abnormal: "",
-    Overtime: "Có tăng ca",
-    Attandent: 30,
+    Zdcode: "20143667",
+    Name: "Thanh",
+    Quantity: 200,
+    Sam: 400,
+    GxNo: "698",
+    Rate: "50%",
   },
   {
-    Quantity: 120,
-    TargetQuantity: 100,
-    Abnormal: "",
-    Overtime: "Không tăng ca",
-    Attandent: 35,
+    Zdcode: "20143667",
+    Name: "Tùng",
+    Quantity: 150,
+    Sam: 400,
+    GxNo: "700",
+    Rate: "37.5%",
   },
   {
-    Quantity: 90,
-    TargetQuantity: 150,
-    Abnormal: "",
-    Overtime: "Không tăng ca",
-    Attandent: 30,
+    Zdcode: "20143667",
+    Name: "Hồng",
+    Quantity: 170,
+    Sam: 400,
+    GxNo: "697,698",
+    Rate: "42.5%",
   },
   {
-    Quantity: 100,
-    TargetQuantity: 150,
-    Abnormal: "",
-    Overtime: "Có tăng ca",
-    Attandent: 25,
+    Zdcode: "20143667",
+    Name: "Dương",
+    Quantity: 400,
+    Sam: 400,
+    GxNo: "697,700",
+    Rate: "100%",
   },
 ];
 
 const columns_data2 = [
   {
+    dataField: "Zdcode",
+    caption: "Mã",
+  },
+  {
+    dataField: "Name",
+    caption: "Tên nhân viên",
+  },
+  {
+    dataField: "GxNo",
+    caption: "Công đoạn",
+  },
+  {
     dataField: "Quantity",
     caption: "Sản lượng",
   },
   {
-    dataField: "TargetQuantity",
-    caption: "Mục tiêu",
+    dataField: "Sam",
+    caption: "Tổng SAM",
   },
   {
-    dataField: "Efficiency",
+    dataField: "Rate",
     caption: "Hiệu suất",
-  },
-  {
-    dataField: "Abnomarl",
-    caption: "Bất thường",
-  },
-  {
-    dataField: "Overtime",
-    caption: "Tăng ca",
-  },
-  {
-    dataField: "Attandent",
-    caption: "Công nhân đi làm",
   },
 ];
 
@@ -322,7 +327,7 @@ const grid3 = $("#grid3")
       color: "rgba(125, 239, 230, 0.8)",
     },
     size: {
-      height: 300,
+      height: 280,
     },
   })
   .dxChart("instance");
@@ -375,7 +380,7 @@ const grid4 = $("#grid4")
     palette: colorPallete,
     type: "doughnut",
     size: {
-      height: 300,
+      height: 265,
       width: 440,
     },
     innerRadius: 0.48,
