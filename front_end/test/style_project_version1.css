@@ -3,6 +3,7 @@
   --bs-gutter-y: 0;
   --font-text: "ChakraPetch", sans-serif;
   --color-default: #7defe6;
+  --color-value: rgb(255, 173, 11);
   --font-weight: 400;
   --bs-border-width: 1px;
   --bs-border-color-rgb: var(--bs-body-color-rgb);
@@ -93,14 +94,14 @@ body {
 }
 
 .card-title-total {
-  color: #7defe6;
+  color: var(--color-value);
   font-family: ChakraPetch, sans-serif;
   font-weight: 550;
   font-size: 40px;
 }
 
 .card-title {
-  color: #7defe6;
+  color: var(--color-value);
   font-family: ChakraPetch, sans-serif;
   font-size: 22px;
 }
