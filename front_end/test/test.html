@@ -30,7 +30,104 @@
     <title>Document</title>
   </head>
   <body>
+    
     <div class="wrapper">
+      <div>
+        <div id="popup">
+          <div class="demo-container">
+            <div class="demo-second">
+              <div class="row">
+                <div class="col-6">
+                  <div class="card table">
+                    <div class="card-header">
+                      <span class="card-title">BẢNG VẤN ĐỀ ĐƠN SẢN XUẤT</span>
+                    </div>
+      
+                    <div class="card-body">
+                      <div id="grid1"></div>
+                    </div>
+      
+                    <div class="card-arrow">
+                      <div class="card-arrow-top-left"></div>
+                      <div class="card-arrow-top-right"></div>
+                      <div class="card-arrow-bottom-left"></div>
+                      <div class="card-arrow-bottom-right"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="card table">
+                    <div class="card-header">
+                      <span class="card-title">BẢNG HIỆU SUẤT CÔNG NHÂN</span>
+                    </div>
+      
+                    <div class="card-body">
+                      <div id="grid2"></div>
+                    </div>
+      
+                    <div class="card-arrow">
+                      <div class="card-arrow-top-left"></div>
+                      <div class="card-arrow-top-right"></div>
+                      <div class="card-arrow-bottom-left"></div>
+                      <div class="card-arrow-bottom-right"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <div class="demo-third">
+              <div class="row">
+                <div class="col-8">
+                  <div class="card table">
+                    <div class="card-header">
+                      <span class="card-title">BẢNG CÂN BẰNG CHUYỀN</span>
+                    </div>
+      
+                    <div class="card-body">
+                      <div id="grid3"></div>
+                    </div>
+      
+                    <div class="card-arrow">
+                      <div class="card-arrow-top-left"></div>
+                      <div class="card-arrow-top-right"></div>
+                      <div class="card-arrow-bottom-left"></div>
+                      <div class="card-arrow-bottom-right"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="card table">
+                    <div class="card-header">
+                      <span class="card-title">BẢNG SỐ LƯỢNG CÔNG NHÂN</span>
+                    </div>
+      
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-6">
+                          <div id="grid4"></div>
+                        </div>
+                        <div class="col-6">
+                          <div class="circle">
+                            <p class="text-circle">70%</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div class="card-arrow">
+                      <div class="card-arrow-top-left"></div>
+                      <div class="card-arrow-top-right"></div>
+                      <div class="card-arrow-bottom-left"></div>
+                      <div class="card-arrow-bottom-right"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="first-floor">
         <div class="body-box">
           <div class="grid-container">
@@ -172,7 +269,7 @@
             </div>
 
             <div class="grid-child3">
-              <div class="btn"><a href="#">L1</a></div>
+              <div class="btn" onclick="CallPopup()"><a href="#">L1</a></div>
               <div class="btn"><a href="#">L2</a></div>
               <div class="btn"><a href="#">L3</a></div>
               <div class="btn"><a href="#">L4</a></div>
