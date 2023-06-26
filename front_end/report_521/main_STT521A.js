@@ -1,4 +1,6 @@
 // Set up column (permanent)
+import { VIEW_GRID_OPTION } from "../config_dataGrid/VIEW_GRID_OPTION.js";
+
 const data = [
   {
     Factory: "VNA",
@@ -46,10 +48,9 @@ const data = [
   },
 ];
 
-const COLOR_GREEN = "#a9d08e";
-const COLOR_PINK = "#ffcccc";
-const COLOR_RED = "#c00000";
-const COLOR_DEFAULT = "#ffffff";
+const COLOR_OK = "#a9d08e";
+const COLOR_HEADER = "#ffcccc";
+const COLOR_NG = "#c00000";
 
 const dataPie = [
   {
@@ -96,9 +97,9 @@ const columns_data = [
         dataField: "StatusMorning",
         caption: "上午Sáng",
         cellTemplate: (container, e) => {
-          let color = COLOR_GREEN;
+          let color = COLOR_OK;
           if (e.data.StatusMorning === "Offline") {
-            color = COLOR_RED;
+            color = COLOR_NG;
           }
           container.text(e.data.StatusMorning);
           container.css("background-color", color);
@@ -109,9 +110,9 @@ const columns_data = [
         dataField: "StatusAfternoon",
         caption: "下午Chiều",
         cellTemplate: (container, e) => {
-          let color = COLOR_GREEN;
+          let color = COLOR_OK;
           if (e.data.StatusAfternoon === "Offline") {
-            color = COLOR_RED;
+            color = COLOR_NG;
           }
           container.text(e.data.StatusAfternoon);
           container.css("background-color", color);
@@ -122,9 +123,9 @@ const columns_data = [
         dataField: "StatusNight",
         caption: "夜班Đêm",
         cellTemplate: (container, e) => {
-          let color = COLOR_GREEN;
+          let color = COLOR_OK;
           if (e.data.StatusNight === "Offline") {
-            color = COLOR_RED;
+            color = COLOR_NG;
           }
           container.text(e.data.StatusNight);
           container.css("background-color", color);
@@ -142,14 +143,14 @@ const columns_data = [
     caption: "结论 Kết luận",
     cellTemplate: (container, e) => {
       let value = "OK";
-      let color = COLOR_GREEN;
+      let color = COLOR_OK;
       if (
         e.data.StatusMorning === "Offline" ||
         e.data.StatusAfternoon === "Offline" ||
         e.data.StatusNight === "Offline"
       ) {
         value = "NG";
-        color = COLOR_RED;
+        color = COLOR_NG;
       }
       container.text(value);
       container.css("background-color", color);
@@ -160,10 +161,9 @@ const columns_data = [
 
 const grid = $("#grid")
   .dxDataGrid({
+    ...VIEW_GRID_OPTION,
     dataSource: data,
     columns: columns_data,
-    showBorders: true,
-    wordWrapEnabled: true,
     headerFilter: {
       visible: true,
     },
@@ -172,13 +172,14 @@ const grid = $("#grid")
         {
           column: "Result",
           summaryType: "count",
+          displayFormat: "汇总Tổng ({0})",
         },
       ],
     },
 
     onRowPrepared: (e) => {
       if (e.rowType == "header") {
-        e.rowElement.css("background", COLOR_PINK);
+        e.rowElement.css("background", COLOR_HEADER);
         return;
       }
       if (e.rowType == "group") {
@@ -193,13 +194,6 @@ const grid = $("#grid")
       if (e.rowType == "header") {
         e.cellElement.css("color", "#000000");
         e.cellElement.css("font-weight", "bold");
-      } else if (e.rowType === "groupFooter") {
-        e.cellElement.css({ background: "#FFD966" });
-        return;
-      } else if (e.rowType === "totalFooter") {
-        if (e.column.dataField === "Result") {
-          console.log(e);
-        }
       }
     },
   })
@@ -209,7 +203,7 @@ const legendSettings = {
   verticalAlignment: "bottom",
   horizontalAlignment: "center",
   itemTextPosition: "right",
-  rowCount: 2,
+  rowCount: 0,
 };
 const seriesOptions = [
   {
@@ -225,9 +219,156 @@ const pie = $("#pie")
   .dxPieChart({
     // sizeGroup: sizeGroupName,
     palette: ["#a9d08e", "#c00000"],
-    title: "Frequency",
+    title: "Tình hình bất thường sử dụng Kanban chuyền công đoạn sau",
     legend: legendSettings,
     dataSource: dataPie,
     series: seriesOptions,
   })
   .dxPieChart("instance");
+
+const form = $("#form")
+  .dxForm({
+    formData: [],
+    items: [
+      {
+        itemType: "group",
+        caption: "RM521-BÁO BIỂU LỊCH SỬ SỬ DỤNG HỆ THỐNG KANBAN",
+        colCount: 6,
+        items: [
+          {
+            dataField: "Date",
+            label: {
+              text: "Chọn ngày",
+              // template: labelTemplate("event"),
+            },
+            editorType: "dxDateBox",
+            editorOptions: {
+              value: null,
+              width: "90%",
+            },
+            validationRules: [
+              {
+                type: "required",
+                message: "Date is required",
+              },
+            ],
+          },
+          {
+            dataField: "Factory",
+            editorType: "dxTagBox",
+            editorOptions: {
+              items: ["VNA", "VNB", "VNC", "VND", "VNE"],
+              searchEnabled: true,
+              value: "",
+              width: "90%",
+            },
+            validationRules: [
+              {
+                type: "required",
+                message: "Factory is required",
+              },
+            ],
+            label: {
+              text: "Chọn nhà máy",
+            },
+          },
+          {
+            dataField: "Department",
+            editorType: "dxTagBox",
+            editorOptions: {
+              items: [],
+              searchEnabled: true,
+              value: "",
+              width: "90%",
+            },
+            validationRules: [
+              {
+                type: "required",
+                message: "Department is required",
+              },
+            ],
+            label: {
+              text: "Chọn bộ phận",
+            },
+          },
+          {
+            dataField: "Workshop",
+            editorType: "dxTagBox",
+            editorOptions: {
+              items: [],
+              searchEnabled: true,
+              value: "",
+              width: "90%",
+            },
+            validationRules: [
+              {
+                type: "required",
+                message: "Workshop is required",
+              },
+            ],
+            label: {
+              text: "Chọn xưởng",
+            },
+          },
+          {
+            dataField: "Type",
+            editorType: "dxSelectBox",
+            editorOptions: {
+              items: [
+                {
+                  id: 0,
+                  text: "后工序产线看板 Kanban chuyền công đoạn sau ",
+                },
+                {
+                  id: 1,
+                  text: "其他部门看板 Kanban bộ phận khác",
+                },
+              ],
+              displayExpr: "text",
+              valueExpr: "id",
+              value: 0,
+              onValueChanged(e) {
+                if (e.value === 0) {
+                  grid.columnOption("WorkShop", "visible", true);
+                  pie.option(
+                    "title",
+                    "Tình hình bất thường sử dụng Kanban chuyền công đoạn sau"
+                  );
+                } else if (e.value === 1) {
+                  grid.columnOption("WorkShop", "visible", false);
+                  pie.option(
+                    "title",
+                    "Tình hình bất thường sử dụng Kanban bộ phận khác"
+                  );
+                }
+              },
+              searchEnabled: true,
+              width: "100%",
+            },
+            validationRules: [
+              {
+                type: "required",
+                message: "Type is required",
+              },
+            ],
+            label: {
+              text: "Phân loại",
+            },
+          },
+          {
+            editorType: "dxButton",
+            editorOptions: {
+              icon: "find",
+              text: "Tra cứu",
+              width: "40%",
+              type: "default",
+              onClick: function () {
+                console.log(form.option("formData"));
+              },
+            },
+          },
+        ],
+      },
+    ],
+  })
+  .dxForm("instance");
