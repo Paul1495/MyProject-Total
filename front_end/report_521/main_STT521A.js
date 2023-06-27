@@ -137,6 +137,7 @@ const columns_data = [
   {
     dataField: "Download",
     caption: "计划上传 Tải biểu kế hoạch",
+    visible: false,
   },
   {
     dataField: "Result",
@@ -330,12 +331,14 @@ const form = $("#form")
               onValueChanged(e) {
                 if (e.value === 0) {
                   grid.columnOption("WorkShop", "visible", true);
+                  grid.columnOption("Download", "visible", false);
                   pie.option(
                     "title",
                     "Tình hình bất thường sử dụng Kanban chuyền công đoạn sau"
                   );
                 } else if (e.value === 1) {
                   grid.columnOption("WorkShop", "visible", false);
+                  grid.columnOption("Download", "visible", true);
                   pie.option(
                     "title",
                     "Tình hình bất thường sử dụng Kanban bộ phận khác"
