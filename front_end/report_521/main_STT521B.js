@@ -1,7 +1,8 @@
 import { VIEW_GRID_OPTION } from "../config_dataGrid/VIEW_GRID_OPTION.js";
 const colorHeader = "#ffcccc";
 const colorText = "#000000";
-const colorPallete = ["#a9d08e", "#c00000"];
+const colorPalleteWorkshop = ["#a9d08e", "#c00000"];
+const colorPalleteDepartment = ["#a9d08e", "#c00000", "#ffc000", "#ed7d31"];
 
 const form = $("#form")
   .dxForm({
@@ -87,17 +88,23 @@ const form = $("#form")
               value: 0,
               onValueChanged(e) {
                 if (e.value === 0) {
-                  grid.columnOption("WorkShop", "visible", true);
-                  pie.option(
-                    "title",
-                    "Tình hình bất thường sử dụng Kanban chuyền công đoạn sau"
-                  );
+                  chart.option("palette", colorPalleteWorkshop);
+                  chart.option("dataSource", dataChartWorkshop);
+                  chart.option("commonSeriesSettings", commonSeriesWorkshop);
+                  chart.option("series", seriesWorkshop);
+                  chart.option("valueAxis", valueAixsWorkshop);
+                  chart.option("title", titleWorkshop);
+                  grid.option("dataSource", dataGridWorkshop);
+                  grid.option("columns", columnsWorkshop);
                 } else if (e.value === 1) {
-                  grid.columnOption("WorkShop", "visible", false);
-                  pie.option(
-                    "title",
-                    "Tình hình bất thường sử dụng Kanban bộ phận khác"
-                  );
+                  chart.option("palette", colorPalleteDepartment);
+                  chart.option("dataSource", dataChartDepartment);
+                  chart.option("commonSeriesSettings", commonSeriesDepartment);
+                  chart.option("series", seriesDeparment);
+                  chart.option("valueAxis", valueAixsDepartment);
+                  chart.option("title", titleDepartment);
+                  grid.option("dataSource", dataDepartment);
+                  grid.option("columns", columnsDepartment);
                 }
               },
               searchEnabled: true,
@@ -131,7 +138,7 @@ const form = $("#form")
   })
   .dxForm("instance");
 
-const dataChart = [
+const dataChartWorkshop = [
   {
     workshop: "A1",
     OK: 18,
@@ -188,53 +195,166 @@ const dataChart = [
   },
 ];
 
+const dataChartDepartment = [
+  {
+    department: "Kho NL",
+    dontTurnOn: 1,
+    dontLoad: 0,
+    update: 0,
+    OK: 19,
+  },
+  {
+    department: "Thí nghiệm",
+    dontTurnOn: 0,
+    dontLoad: 0,
+    update: 0,
+    OK: 20,
+  },
+  {
+    department: "Xả vảo",
+    dontTurnOn: 0,
+    dontLoad: 0,
+    update: 0,
+    OK: 20,
+  },
+  {
+    department: "Cut",
+    dontTurnOn: 2,
+    dontLoad: 1,
+    update: 2,
+    OK: 15,
+  },
+  {
+    department: "TTPL",
+    dontTurnOn: 0,
+    dontLoad: 2,
+    update: 1,
+    OK: 17,
+  },
+  {
+    department: "Kho TP",
+    dontTurnOn: 0,
+    dontLoad: 1,
+    update: 1,
+    OK: 18,
+  },
+];
+
+const commonSeriesWorkshop = {
+  argumentField: "workshop",
+  type: "fullStackedBar",
+};
+
+const seriesWorkshop = [
+  {
+    valueField: "OK",
+    name: "OK",
+    axis: "total",
+  },
+  {
+    valueField: "NG",
+    name: "NG",
+    axis: "total",
+  },
+  {
+    axis: "percent",
+    type: "line",
+    valueField: "TotalOk",
+    name: "Tỷ lệ SD",
+    color: "#2e75b6",
+  },
+];
+
+const commonSeriesDepartment = {
+  argumentField: "department",
+  type: "fullStackedBar",
+};
+
+const seriesDeparment = [
+  {
+    valueField: "OK",
+    name: "OK",
+    axis: "total",
+  },
+  {
+    valueField: "dontTurnOn",
+    name: "Không bật",
+    axis: "total",
+  },
+  {
+    valueField: "dontLoad",
+    name: "Không tải",
+    axis: "total",
+  },
+  {
+    valueField: "update",
+    name: "Cập nhật muộn",
+    axis: "total",
+  },
+];
+
+const valueAixsWorkshop = [
+  {
+    name: "percent",
+    position: "left",
+    valueMarginsEnabled: false,
+  },
+  {
+    name: "total",
+    position: "right",
+  },
+];
+
+const valueAixsDepartment = [
+  {
+    name: "percent",
+    position: "left",
+    valueMarginsEnabled: false,
+  },
+  {
+    name: "total",
+    position: "right",
+  },
+];
+
+const titleWorkshop = {
+  text: "VNA 后工序产线中控看板各车间使用情况（天)",
+  font: {
+    size: 20,
+    weight: 500,
+  },
+  subtitle: {
+    text: "Tình hình sử dụng kanban công đoạn sau của các xưởng VNA ( Ngày )",
+    font: {
+      size: 20,
+      weight: 600,
+    },
+  },
+};
+
+const titleDepartment = {
+  text: "VNA 各部门看板使用情况（天)",
+  font: {
+    size: 20,
+    weight: 500,
+  },
+  subtitle: {
+    text: "Tình hình sử dụng kanban các bộ phận VNA ( Ngày ) ",
+    font: {
+      size: 20,
+      weight: 600,
+    },
+  },
+};
+
 const chart = $("#chart")
   .dxChart({
-    palette: colorPallete,
-    dataSource: dataChart,
-    commonSeriesSettings: {
-      argumentField: "workshop",
-      type: "fullstackedbar",
-    },
-    series: [
-      {
-        valueField: "OK",
-        name: "OK",
-      },
-      {
-        valueField: "NG",
-        name: "NG",
-      },
-      {
-        axis: "total",
-        type: "line",
-        valueField: "TotalOk",
-        name: "Tỷ lệ SD",
-        color: "#2e75b6",
-      },
-    ],
-    // valueAxis: [
-    //   {
-    //     // name: "percent",
-    //     // position: "left",
-    //     // label: {
-    //     //   customizeText: function (info) {
-    //     //     return info.valueText * 100 + "%";
-    //     //   },
-    //     // },
-    //     // grid: {
-    //     //   visible: true,
-    //     // },
-    //   },
-    //   {
-    //     name: "total",
-    //     position: "right",
-
-    //     grid: {
-    //       visible: true,
-    //     },
-    //   },
-    // ],
+    palette: colorPalleteWorkshop,
+    dataSource: dataChartWorkshop,
+    commonSeriesSettings: commonSeriesWorkshop,
+    series: seriesWorkshop,
+    valueAxis: valueAixsWorkshop,
+    title: titleWorkshop,
     legend: {
       verticalAlignment: "bottom",
       horizontalAlignment: "center",
@@ -242,7 +362,7 @@ const chart = $("#chart")
   })
   .dxChart("instance");
 
-const dataGrid = [
+const dataGridWorkshop = [
   {
     VNA: "OK",
     A1: 18,
@@ -305,7 +425,7 @@ const dataGrid = [
   },
 ];
 
-const columnsGrid = [
+const columnsWorkshop = [
   {
     dataField: "VNA",
   },
@@ -341,11 +461,99 @@ const columnsGrid = [
   },
 ];
 
+const dataDepartment = [
+  {
+    VNA: "OK",
+    storageMaterial: 19,
+    experiment: 20,
+    soften: 20,
+    cut: 15,
+    ttpl: 17,
+    storageProduction: 18,
+  },
+  {
+    VNA: "Không bật",
+    storageMaterial: 1,
+    experiment: 0,
+    soften: 0,
+    cut: 2,
+    ttpl: 0,
+    storageProduction: 0,
+  },
+  {
+    VNA: "Không tải",
+    storageMaterial: 0,
+    experiment: 0,
+    soften: 0,
+    cut: 1,
+    ttpl: 2,
+    storageProduction: 1,
+  },
+  {
+    VNA: "Cập nhật",
+    storageMaterial: 0,
+    experiment: 0,
+    soften: 0,
+    cut: 2,
+    ttpl: 1,
+    storageProduction: 1,
+  },
+  {
+    VNA: "Tỷ lệ SD",
+    storageMaterial: 0.95,
+    experiment: 1,
+    soften: 1,
+    cut: 0.75,
+    ttpl: 0.85,
+    storageProduction: 0.9,
+  },
+  {
+    VNA: "Ngày bất thường",
+    storageMaterial: 20230201,
+    experiment: "",
+    soften: "",
+    cut: 20230203,
+    ttpl: 20230204,
+    storageProduction: 20230203,
+  },
+];
+
+const columnsDepartment = [
+  {
+    dataField: "VNA",
+    caption: "",
+  },
+  {
+    dataField: "storageMaterial",
+    caption: "Kho NL",
+  },
+  {
+    dataField: "experiment",
+    caption: "Thí nghiệm",
+  },
+  {
+    dataField: "soften",
+    caption: "Xả vải",
+  },
+  {
+    dataField: "cut",
+    caption: "Cut",
+  },
+  {
+    dataField: "ttpl",
+    caption: "TTPL",
+  },
+  {
+    dataField: "storageProduction",
+    caption: "Kho TP",
+  },
+];
+
 const grid = $("#grid")
   .dxDataGrid({
     ...VIEW_GRID_OPTION,
-    dataSource: dataGrid,
-    columns: columnsGrid,
+    dataSource: dataGridWorkshop,
+    columns: columnsWorkshop,
     headerFilter: {
       visible: true,
     },
