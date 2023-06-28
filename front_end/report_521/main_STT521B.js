@@ -92,7 +92,6 @@ const form = $("#form")
                   chart.option("dataSource", dataChartWorkshop);
                   chart.option("commonSeriesSettings", commonSeriesWorkshop);
                   chart.option("series", seriesWorkshop);
-                  chart.option("valueAxis", valueAixsWorkshop);
                   chart.option("title", titleWorkshop);
                   grid.option("dataSource", dataGridWorkshop);
                   grid.option("columns", columnsWorkshop);
@@ -101,7 +100,6 @@ const form = $("#form")
                   chart.option("dataSource", dataChartDepartment);
                   chart.option("commonSeriesSettings", commonSeriesDepartment);
                   chart.option("series", seriesDeparment);
-                  chart.option("valueAxis", valueAixsDepartment);
                   chart.option("title", titleDepartment);
                   grid.option("dataSource", dataDepartment);
                   grid.option("columns", columnsDepartment);
@@ -143,57 +141,53 @@ const dataChartWorkshop = [
     workshop: "A1",
     OK: 18,
     NG: 2,
-    TotalOk: 18,
   },
   {
     workshop: "A2",
     OK: 19,
     NG: 1,
-    TotalOk: 19,
   },
   {
     workshop: "A3",
     OK: 20,
     NG: 0,
-    TotalOk: 20,
   },
   {
     workshop: "A5",
     OK: 17,
     NG: 3,
-    TotalOk: 17,
   },
   {
     workshop: "A6",
     OK: 15,
     NG: 5,
-    TotalOk: 15,
   },
   {
     workshop: "A7",
     OK: 17,
     NG: 3,
-    TotalOk: 17,
   },
   {
     workshop: "A8",
     OK: 20,
     NG: 0,
-    TotalOk: 20,
   },
   {
     workshop: "A9",
     OK: 20,
     NG: 0,
-    TotalOk: 20,
   },
   {
     workshop: "A10",
     OK: 20,
     NG: 0,
-    TotalOk: 20,
   },
 ];
+
+$.each(dataChartWorkshop, (i, workshop) => {
+  workshop[`TotalOk`] =
+    (workshop[`OK`] / (workshop[`OK`] + workshop[`NG`])) * 100;
+});
 
 const dataChartDepartment = [
   {
@@ -240,9 +234,19 @@ const dataChartDepartment = [
   },
 ];
 
+$.each(dataChartDepartment, (i, department) => {
+  department[`Rate`] =
+    (department[`OK`] /
+      (department[`OK`] +
+        department[`dontTurnOn`] +
+        department[`dontLoad`] +
+        department[`update`])) *
+    100;
+});
+
 const commonSeriesWorkshop = {
   argumentField: "workshop",
-  type: "fullStackedBar",
+  type: "stackedBar",
 };
 
 const seriesWorkshop = [
@@ -262,12 +266,19 @@ const seriesWorkshop = [
     valueField: "TotalOk",
     name: "Tỷ lệ SD",
     color: "#2e75b6",
+    label: {
+      visible: true,
+      position: "inside",
+      customizeText(e) {
+        return `${e.valueText} %`;
+      },
+    },
   },
 ];
 
 const commonSeriesDepartment = {
   argumentField: "department",
-  type: "fullStackedBar",
+  type: "stackedBar",
 };
 
 const seriesDeparment = [
@@ -291,29 +302,19 @@ const seriesDeparment = [
     name: "Cập nhật muộn",
     axis: "total",
   },
-];
-
-const valueAixsWorkshop = [
   {
-    name: "percent",
-    position: "left",
-    valueMarginsEnabled: false,
-  },
-  {
-    name: "total",
-    position: "right",
-  },
-];
-
-const valueAixsDepartment = [
-  {
-    name: "percent",
-    position: "left",
-    valueMarginsEnabled: false,
-  },
-  {
-    name: "total",
-    position: "right",
+    axis: "percent",
+    type: "line",
+    valueField: "Rate",
+    name: "Tỷ lệ SD",
+    color: "#2e75b6",
+    label: {
+      visible: true,
+      position: "inside",
+      customizeText(e) {
+        return `${e.valueText} %`;
+      },
+    },
   },
 ];
 
@@ -349,11 +350,31 @@ const titleDepartment = {
 
 const chart = $("#chart")
   .dxChart({
+    synchronizeMultiAxes: true,
     palette: colorPalleteWorkshop,
     dataSource: dataChartWorkshop,
     commonSeriesSettings: commonSeriesWorkshop,
     series: seriesWorkshop,
-    valueAxis: valueAixsWorkshop,
+    valueAxis: [
+      {
+        name: "percent",
+        position: "right",
+        // valueMarginsEnabled: false,
+        visualRange: [0, 100],
+        label: {
+          visible: true,
+          customizeText(e) {
+            return `${e.valueText} %`;
+          },
+        },
+      },
+      {
+        name: "total",
+        position: "left",
+        tickInterval: 8, //để vẽ số hàng của mỗi bên
+        // vi
+      },
+    ],
     title: titleWorkshop,
     legend: {
       verticalAlignment: "bottom",

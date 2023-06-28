@@ -121,7 +121,7 @@ const grid1 = $("#grid1")
 const description_data2 = [
   {
     Zdcode: "20143667",
-    Name: "Duy",
+    Name: "Mr.A",
     Quantity: 300,
     Sam: 400,
     GxNo: "697",
@@ -129,7 +129,7 @@ const description_data2 = [
   },
   {
     Zdcode: "20143667",
-    Name: "Thanh",
+    Name: "Mr.B",
     Quantity: 200,
     Sam: 400,
     GxNo: "698",
@@ -137,7 +137,7 @@ const description_data2 = [
   },
   {
     Zdcode: "20143667",
-    Name: "Tùng",
+    Name: "Mr.C",
     Quantity: 150,
     Sam: 400,
     GxNo: "700",
@@ -145,7 +145,7 @@ const description_data2 = [
   },
   {
     Zdcode: "20143667",
-    Name: "Hồng",
+    Name: "Mr.D",
     Quantity: 170,
     Sam: 400,
     GxNo: "697,698",
@@ -153,7 +153,7 @@ const description_data2 = [
   },
   {
     Zdcode: "20143667",
-    Name: "Dương",
+    Name: "Mr.E",
     Quantity: 400,
     Sam: 400,
     GxNo: "697,700",
@@ -220,58 +220,61 @@ const grid2 = $("#grid2")
 
 const dataSource = [
   {
-    Name: "Duy",
+    Name: "541",
     Quantity: 300,
   },
   {
-    Name: "Thanh",
+    Name: "542",
     Quantity: 200,
   },
   {
-    Name: "Tùng",
+    Name: "544",
     Quantity: 150,
   },
   {
-    Name: "Hồng",
+    Name: "546",
     Quantity: 170,
   },
   {
-    Name: "Dương",
+    Name: "547",
     Quantity: 400,
   },
   {
-    Name: "Thắng",
+    Name: "548",
     Quantity: 450,
   },
   {
-    Name: "Hiếu",
+    Name: "549",
     Quantity: 210,
   },
   {
-    Name: "Dung",
+    Name: "550",
     Quantity: 200,
   },
   {
-    Name: "Tuyên",
+    Name: "601",
     Quantity: 130,
   },
   {
-    Name: "Hoàn",
+    Name: "602",
     Quantity: 170,
   },
   {
-    Name: "Hưng",
+    Name: "604",
     Quantity: 55,
   },
   {
-    Name: "Hoa",
+    Name: "606",
     Quantity: 600,
   },
   {
-    Name: "Loan",
+    Name: "607",
     Quantity: 800,
   },
 ];
+
+const maxQuantity = Math.max(...dataSource.map((o) => o.Quantity));
+const minQuantity = Math.min(...dataSource.map((o) => o.Quantity));
 
 const grid3 = $("#grid3")
   .dxChart({
@@ -294,8 +297,8 @@ const grid3 = $("#grid3")
     },
     valueAxis: {
       label: {
-        customizeText() {
-          return `${this.valueText}`;
+        customizeText(e) {
+          return `${e.valueText}`;
         },
         font: {
           //Chỉnh định dạng của trục tung
@@ -303,6 +306,7 @@ const grid3 = $("#grid3")
           family: fontText,
         },
       },
+      visualRange: [0, 1000],
     },
     legend: {
       //Chỉnh định dạng của ô ghi chú VNA,VND, VNC, VNE
@@ -319,16 +323,62 @@ const grid3 = $("#grid3")
       },
       markerSize: 30,
     },
+    customizePoint(e) {
+      //Define màu sắc của cột đạt giá trị cao nhất, thấp nhất
+      if (e.value === maxQuantity) {
+        return { color: "#7defe6", hoverStyle: { color: "#7defe6" } };
+      }
+      if (e.value === minQuantity) {
+        return {
+          color: "rgb(255, 173, 11)",
+          hoverStyle: { color: "rgb(255, 173, 11)" },
+        };
+      }
+      return null;
+    },
+    customizeLabel() {
+      //Define nhán dãn của cột đạt giá trị cao nhất thấp nhất
+      if (this.value === maxQuantity) {
+        return {
+          visible: true,
+          backgroundColor: "transparent",
+          postion: "outside",
+          font: {
+            color: "#7defe6",
+          },
+          customizeText(e) {
+            return `MAX ${e.valueText}`;
+          },
+        };
+      }
+      if (this.value === minQuantity) {
+        return {
+          visible: true,
+          backgroundColor: "transparent",
+          font: {
+            color: "rgb(255, 173, 11)",
+          },
+          // color: "rgb(255, 173, 11)",
+          customizeText(e) {
+            return `MIN ${e.valueText}`;
+          },
+        };
+      }
+      return null;
+    },
     series: {
       argumentField: "Name",
       valueField: "Quantity",
       name: "Quantity",
       type: "bar",
-      color: "rgba(125, 239, 230, 0.8)",
+      color: "rgba(125, 239, 230, 0.4)",
     },
     size: {
       height: 280,
     },
+    // margin: {
+    //   top: 15,
+    // },
   })
   .dxChart("instance");
 
