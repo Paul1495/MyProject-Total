@@ -222,7 +222,7 @@ a {
   color: #fff;
   font-weight: 400px;
   z-index: 1;
-  transition: 0.5s;
+  transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1); /*cubic bizier giúp cho animation or transation mượt hơn bỏ qua độ nặng của trang web*/
   backdrop-filter: blur(15px);
 }
 .grid-child3 .btn:hover a {
@@ -237,7 +237,7 @@ a {
   height: 100%;
   background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
   transform: skewX(45deg) translate(0);
-  transition: 0.5s;
+  transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1); /*cubic bizier giúp cho animation or transation mượt hơn bỏ qua độ nặng của trang web*/
   filter: blur(0px);
 }
 .grid-child3 .btn:hover a::before {
@@ -253,8 +253,8 @@ a {
   height: 10px;
   background: #f00;
   border-radius: 10px;
-  transition: 0.5s;
-  transition-delay: 0.5;
+  transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1); /*cubic bizier giúp cho animation or transation mượt hơn bỏ qua độ nặng của trang web*/
+  transition-delay: 0.5 cubic-bezier(0.19, 1, 0.22, 1);
 }
 .grid-child3 .btn:hover::before /*lightup button*/ {
   bottom: 0;
@@ -273,8 +273,8 @@ a {
   height: 10px;
   background: #f00;
   border-radius: 10px;
-  transition: 0.5s;
-  transition-delay: 0.5;
+  transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1); /*cubic bizier giúp cho animation or transation mượt hơn bỏ qua độ nặng của trang web*/
+  transition-delay: 0.5 cubic-bezier(0.19, 1, 0.22, 1);
 }
 .grid-child3 .btn:hover::after /*lightup button*/ {
   top: 0;

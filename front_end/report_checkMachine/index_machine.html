@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn3.devexpress.com/jslib/22.2.4/css/dx.light.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn3.devexpress.com/jslib/22.2.4/js/dx.all.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/report_checkMachine/style_machine.css" />
+    <title>REPORT CHECK MACHINE</title>
+  </head>
+  <body>
+    <style>
+      .dx-datagrid-summary-item {
+        color: black !important;
+        text-align: center !important;
+        font-weight: 500 !important ;
+        vertical-align: middle !important;
+      }
+
+      .dx-group-cell {
+        color: black !important;
+      }
+    </style>
+
+    <div id="inputData"></div>
+    <div class="box">
+      <p>1. Cài sai chuyền cho máy dập thẻ</p>
+      <div id="wrongLine"></div>
+    </div>
+    <div class="box">
+      <p>
+        2. Nốt đăng nhập bất thường(nốt thẻ trùng lặp nhau, nốt thẻ không chính
+        xác, nốt đăng nhập không có nhân viên)
+      </p>
+      <div id="loginAbnormal"></div>
+    </div>
+    <div class="box">
+      <p>3. Nốt đăng nhập không có mã nhân viên</p>
+      <div id="emptyCode"></div>
+    </div>
+    <div class="box">
+      <p>4. Sai ca làm việc</p>
+      <div id="wrongShift"></div>
+    </div>
+    <div class="box">
+      <p>5. Danh sách công nhân có cấp bậc bất thường</p>
+      <div id="rankAbnormal"></div>
+    </div>
+    <div class="box">
+      <p>6. Danh sách công nhân nghỉ việc nhưng chưa out máy nhóm</p>
+      <div id="quit"></div>
+    </div>
+
+    <ul class="circles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </body>
+  <script src="/report_checkMachine/main_machine.js"></script>
+</html>
