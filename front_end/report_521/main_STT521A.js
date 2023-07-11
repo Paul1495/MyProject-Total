@@ -1,5 +1,9 @@
 // Set up column (permanent)
 import { VIEW_GRID_OPTION } from "../config_dataGrid/VIEW_GRID_OPTION.js";
+const color_header =
+  "radial-gradient(rgba(255,199,206,0.5), rgba(255,199,206,1))";
+const COLOR_OK = "#a9d08e";
+const COLOR_NG = "#c00000";
 
 const data = [
   {
@@ -47,10 +51,6 @@ const data = [
     StatusNight: "Online",
   },
 ];
-
-const COLOR_OK = "#a9d08e";
-const COLOR_HEADER = "#ffcccc";
-const COLOR_NG = "#c00000";
 
 const dataPie = [
   {
@@ -180,7 +180,7 @@ const grid = $("#grid")
 
     onRowPrepared: (e) => {
       if (e.rowType == "header") {
-        e.rowElement.css("background", COLOR_HEADER);
+        e.rowElement.css("background", color_header);
         return;
       }
       if (e.rowType == "group") {
@@ -234,18 +234,36 @@ const form = $("#form")
       {
         itemType: "group",
         caption: "RM521-BÁO BIỂU LỊCH SỬ SỬ DỤNG HỆ THỐNG KANBAN",
-        colCount: 6,
+        colCount: 7,
         items: [
           {
-            dataField: "Date",
+            dataField: "FromDate",
             label: {
-              text: "Chọn ngày",
+              text: "Từ ngày",
               // template: labelTemplate("event"),
             },
             editorType: "dxDateBox",
             editorOptions: {
               value: null,
-              width: "90%",
+              // width: "70%",
+            },
+            validationRules: [
+              {
+                type: "required",
+                message: "Date is required",
+              },
+            ],
+          },
+          {
+            dataField: "ToDate",
+            label: {
+              text: "Đến ngày",
+              // template: labelTemplate("event"),
+            },
+            editorType: "dxDateBox",
+            editorOptions: {
+              value: null,
+              // width: "70%",
             },
             validationRules: [
               {
@@ -261,7 +279,7 @@ const form = $("#form")
               items: ["VNA", "VNB", "VNC", "VND", "VNE"],
               searchEnabled: true,
               value: "",
-              width: "90%",
+              width: "100%",
             },
             validationRules: [
               {
@@ -280,7 +298,7 @@ const form = $("#form")
               items: [],
               searchEnabled: true,
               value: "",
-              width: "90%",
+              width: "100%",
             },
             validationRules: [
               {
@@ -299,7 +317,7 @@ const form = $("#form")
               items: [],
               searchEnabled: true,
               value: "",
-              width: "90%",
+              width: "100%",
             },
             validationRules: [
               {
@@ -363,8 +381,8 @@ const form = $("#form")
             editorOptions: {
               icon: "find",
               text: "Tra cứu",
-              width: "40%",
-              type: "default",
+              width: "50%",
+              type: "success",
               onClick: function () {
                 console.log(form.option("formData"));
               },

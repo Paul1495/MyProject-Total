@@ -189,6 +189,8 @@ $.each(dataChartWorkshop, (i, workshop) => {
     (workshop[`OK`] / (workshop[`OK`] + workshop[`NG`])) * 100;
 });
 
+console.log(dataChartWorkshop);
+
 const dataChartDepartment = [
   {
     department: "Kho NL",
@@ -333,20 +335,20 @@ const titleWorkshop = {
   },
 };
 
-const titleDepartment = {
-  text: "VNA 各部门看板使用情况（天)",
-  font: {
-    size: 20,
-    weight: 500,
-  },
-  subtitle: {
-    text: "Tình hình sử dụng kanban các bộ phận VNA ( Ngày ) ",
-    font: {
-      size: 20,
-      weight: 600,
-    },
-  },
-};
+// const titleDepartment = {
+//   text: "VNA 各部门看板使用情况（天)",
+//   font: {
+//     size: 20,
+//     weight: 500,
+//   },
+//   subtitle: {
+//     text: "Tình hình sử dụng kanban các bộ phận VNA ( Ngày ) ",
+//     font: {
+//       size: 20,
+//       weight: 600,
+//     },
+//   },
+// };
 
 const chart = $("#chart")
   .dxChart({
@@ -409,18 +411,6 @@ const dataGridWorkshop = [
     A10: 0,
   },
   {
-    VNA: "NG",
-    A1: 2,
-    A2: 1,
-    A3: 0,
-    A5: 3,
-    A6: 5,
-    A7: 3,
-    A8: 3,
-    A9: 0,
-    A10: 0,
-  },
-  {
     VNA: "使用比例 - Tỷ lệ SD",
     A1: "90%",
     A2: "95%",
@@ -449,6 +439,7 @@ const dataGridWorkshop = [
 const columnsWorkshop = [
   {
     dataField: "VNA",
+    width: 600,
   },
   {
     dataField: "A1",

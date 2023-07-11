@@ -1,404 +1,212 @@
-const colorText = "#7defe6";
-const colorBorder = "rgba(81, 99, 97, 0.25)";
-const colorHeader = "rgba(125, 239, 230, 0.2)";
-const fontText = "ChakraPetch,sans-serif";
-const colorGrid = "#516361";
-const colorPallete = ["#7defe6", "rgba(125, 239, 230, 0.2)"];
-
-const description_data1 = [
+const data = [
   {
-    Problem: "",
-    Zdcode: "000020143667",
-    SaleNo: "20143667",
-    PlanQuantity: "Không có kế hoạch",
-    ActualQuantity: 1,
-    Rate: "",
-    Noted: "NG",
+    Group: "A1",
+    OK: 34,
+    NG: 41,
+    Rate: "45.33%",
+    Detail:
+      "2023-06-26: A1-L2,A1-L4,A1-L8,A1-L11,A1-L12</br>2023-06-27: A1,A1-L1,A1-L2,A1-L3,A1-L4,A1-L8,A1-L11,A1-L12,A1-L14</br>2023-06-28: A1,A1-L2,A1-L3,A1-L4,A1-L5,A1-L8,A1-L9,A1-L10,A1-L11,A1-L12,A1-L13,A1-L14</br>2023-06-29: A1-L1,A1-L4,A1-L5,A1-L6,A1-L7,A1-L8,A1-L11,A1-L12,A1-L13</br>2023-06-30: A1-L2,A1-L8,A1-L10,A1-L11,A1-L13,A1-L14</br>",
   },
   {
-    Problem: "",
-    Zdcode: "000020143667",
-    SaleNo: "20143667",
-    PlanQuantity: "Không có kế hoạch",
-    ActualQuantity: 1,
-    Rate: "",
-    Noted: "NG",
+    Group: "A2",
+    OK: 15,
+    NG: 65,
+    Rate: "18.75%",
+    Detail:
+      "2023-06-26: A2,A2-L1,A2-L2,A2-L3,A2-L4,A2-L5,A2-L6,A2-L7,A2-L8,A2-L9,A2-L10,A2-L11,A2-L12,A2-L13,A2-L15</br>2023-06-27: A2-L1,A2-L2,A2-L5,A2-L6,A2-L7,A2-L9,A2-L10,A2-L11,A2-L12,A2-L13,A2-L15</br>2023-06-28: A2-L2,A2-L3,A2-L4,A2-L5,A2-L6,A2-L7,A2-L8,A2-L9,A2-L10,A2-L11,A2-L12,A2-L13,A2-L15</br>2023-06-29: A2-L1,A2-L2,A2-L3,A2-L4,A2-L5,A2-L6,A2-L7,A2-L8,A2-L9,A2-L10,A2-L11,A2-L12</br>2023-06-30: A2-L1,A2-L2,A2-L3,A2-L4,A2-L5,A2-L6,A2-L7,A2-L8,A2-L9,A2-L10,A2-L11,A2-L12,A2-L13,A2-L14</br>",
   },
   {
-    Problem: "",
-    Zdcode: "000020143667",
-    SaleNo: "20143667",
-    PlanQuantity: "Không có kế hoạch",
-    ActualQuantity: 1,
-    Rate: "",
-    Noted: "NG",
+    Group: "A3",
+    OK: 34,
+    NG: 41,
+    Rate: "45.33%",
+    Detail:
+      "2023-06-26: A3,A3-L1,A3-L3,A3-L5,A3-L10,A3-L11,A3-L12,A3-L13,A3-L14</br>2023-06-27: A3,A3-L1,A3-L3,A3-L5,A3-L10,A3-L13,A3-L14</br>2023-06-28: A3,A3-L1,A3-L5,A3-L10,A3-L12,A3-L13,A3-L14</br>2023-06-29: A3,A3-L1,A3-L5,A3-L6,A3-L8,A3-L10,A3-L12,A3-L13,A3-L14</br>2023-06-30: A3,A3-L1,A3-L3,A3-L5,A3-L6,A3-L10,A3-L12,A3-L13,A3-L14</br>",
   },
   {
-    Problem: "",
-    Zdcode: "000020143667",
-    SaleNo: "20143667",
-    PlanQuantity: 188,
-    ActualQuantity: 92,
-    Rate: "48.93%",
-    Noted: "OK",
+    Group: "A5",
+    OK: 66,
+    NG: 14,
+    Rate: "82.5%",
+    Detail:
+      "2023-06-26: A5,A5-L2,A5-L5,A5-L10</br>2023-06-27: A5,A5-L2,A5-L5,A5-L6</br>2023-06-28: A5-L2</br>2023-06-29: A5-L2,A5-L11</br>2023-06-30: A5-L2,A5-L4,A5-L13</br>",
   },
   {
-    Problem: "",
-    Zdcode: "000020143667",
-    SaleNo: "20143667",
-    PlanQuantity: 129,
-    ActualQuantity: 214,
-    Rate: "165.89%",
-    Noted: "OK",
-  },
-];
-
-const columns_data1 = [
-  {
-    dataField: "Problem",
-    caption: "Vấn đề",
+    Group: "A6",
+    OK: 18,
+    NG: 57,
+    Rate: "24%",
+    Detail:
+      "2023-06-26: A6-L1,A6-L2,A6-L3,A6-L4,A6-L5,A6-L6,A6-L7,A6-L9,A6-L10,A6-L11,A6-L12,A6-L13,A6-L14</br>2023-06-27: A6-L3,A6-L7,A6-L9,A6-L10,A6-L12,A6-L13,A6-L14</br>2023-06-28: A6-L1,A6-L2,A6-L3,A6-L5,A6-L6,A6-L7,A6-L8,A6-L9,A6-L12,A6-L13,A6-L14</br>2023-06-29: A6-L1,A6-L2,A6-L3,A6-L4,A6-L6,A6-L7,A6-L8,A6-L9,A6-L10,A6-L11,A6-L12,A6-L13,A6-L14</br>2023-06-30: A6-L1,A6-L3,A6-L4,A6-L5,A6-L6,A6-L7,A6-L8,A6-L9,A6-L10,A6-L11,A6-L12,A6-L13,A6-L14</br>",
   },
   {
-    dataField: "SaleNo",
-    caption: "Đơn sản xuất",
+    Group: "A7",
+    OK: 5,
+    NG: 75,
+    Rate: "6.25%",
+    Detail:
+      "2023-06-26: A7-L1,A7-L3,A7-L4,A7-L5,A7-L6,A7-L7,A7-L8,A7-L9,A7-L10,A7-L11,A7-L12,A7-L13,A7-L14,A7-L15</br>2023-06-27: A7-L1,A7-L2,A7-L3,A7-L4,A7-L5,A7-L6,A7-L7,A7-L8,A7-L9,A7-L10,A7-L11,A7-L12,A7-L13,A7-L14,A7-L15</br>2023-06-28: A7-L1,A7-L2,A7-L3,A7-L4,A7-L5,A7-L6,A7-L7,A7-L8,A7-L9,A7-L11,A7-L12,A7-L13,A7-L14,A7-L15</br>2023-06-29: A7,A7-L1,A7-L2,A7-L3,A7-L4,A7-L5,A7-L6,A7-L7,A7-L8,A7-L9,A7-L10,A7-L11,A7-L12,A7-L13,A7-L14,A7-L15</br>2023-06-30: A7,A7-L1,A7-L2,A7-L3,A7-L4,A7-L5,A7-L6,A7-L7,A7-L8,A7-L9,A7-L10,A7-L11,A7-L12,A7-L13,A7-L14,A7-L15</br>",
   },
   {
-    dataField: "Zdcode",
-    caption: "Mã đơn sản xuất",
+    Group: "A8",
+    OK: 60,
+    NG: 5,
+    Rate: "92.31%",
+    Detail:
+      "2023-06-26: </br>2023-06-27: </br>2023-06-28: </br>2023-06-29: A8,A8-L8,A8-L9</br>2023-06-30: A8-L1,A8-L10</br>",
   },
   {
-    dataField: "PlanQuantity",
-    caption: "Kế hoạch",
+    Group: "A9",
+    OK: 58,
+    NG: 7,
+    Rate: "89.23%",
+    Detail:
+      "2023-06-26: A9</br>2023-06-27: A9</br>2023-06-28: A9,A9-L1,A9-L7</br>2023-06-29: A9</br>2023-06-30: A9</br>",
   },
   {
-    dataField: "ActualQuantity",
-    caption: "Thực tế",
+    Group: "A10",
+    OK: 50,
+    NG: 15,
+    Rate: "76.92%",
+    Detail:
+      "2023-06-26: A10-L3,A10-L11,A10-L12</br>2023-06-27: A10-L3,A10-L12</br>2023-06-28: A10-L2,A10-L3,A10-L4,A10-L8,A10-L9,A10-L11</br>2023-06-29: A10-L4,A10-L10</br>2023-06-30: A10-L4,A10-L11</br>",
   },
   {
-    dataField: "Rate",
-    caption: "Tỷ lệ",
+    Group: "A11",
+    OK: 56,
+    NG: 9,
+    Rate: "86.15%",
+    Detail:
+      "2023-06-26: A11,A11-L2</br>2023-06-27: A11,A11-L8</br>2023-06-28: A11-L7,A11-L8</br>2023-06-29: A11,A11-L7</br>2023-06-30: A11-L6</br>",
   },
   {
-    dataField: "Noted",
-    caption: "Ghi chú",
-  },
-];
-
-const grid1 = $("#grid1")
-  .dxDataGrid({
-    dataSource: description_data1,
-    columns: columns_data1,
-    wordWrapEnabled: true,
-    // showBorders: true,
-    showRowLines: true,
-    onRowPrepared: function (e) {
-      if (e.rowType == "header") {
-        e.rowElement.css("background", colorHeader);
-        e.rowElement.css("font-family", fontText);
-        return;
-      }
-    },
-    onCellPrepared: function (e) {
-      e.cellElement.css("text-align", "center");
-      e.cellElement.css("vertical-align", "middle");
-      if (e.rowType == "header") {
-        e.cellElement.css("color", colorText);
-        e.cellElement.css("font-weight", "bold");
-        e.cellElement.css("border-color", colorBorder);
-      }
-      if (e.rowType == "data") {
-        e.cellElement.css("color", colorText);
-        e.cellElement.css("border-color", colorBorder);
-        e.cellElement.css("font-family", fontText);
-        // if (e.column.valueField === "NG") {
-        //   e.cellElement.css("background", "rgba(125, 239, 230, 0.2)");
-        // }
-      }
-    },
-  })
-  .dxDataGrid("instance");
-
-const description_data2 = [
-  {
-    Quantity: 100,
-    TargetQuantity: 150,
-    Abnormal: "",
-    Overtime: "Có tăng ca",
-    Attandent: 25,
+    Group: "A12",
+    OK: 30,
+    NG: 35,
+    Rate: "46.15%",
+    Detail:
+      "2023-06-26: A12-L2,A12-L4,A12-L5,A12-L6,A12-L7,A12-L9</br>2023-06-27: A12-L1,A12-L5,A12-L6,A12-L8,A12-L9</br>2023-06-28: A12,A12-L9</br>2023-06-29: A12,A12-L2,A12-L5,A12-L6,A12-L7,A12-L9,A12-L10,A12-L11,A12-L12</br>2023-06-30: A12,A12-L1,A12-L2,A12-L3,A12-L4,A12-L5,A12-L6,A12-L7,A12-L8,A12-L9,A12-L10,A12-L11,A12-L12</br>",
   },
   {
-    Quantity: 10,
-    TargetQuantity: 100,
-    Abnormal: "",
-    Overtime: "Có tăng ca",
-    Attandent: 30,
+    Group: "A13",
+    OK: 13,
+    NG: 52,
+    Rate: "20%",
+    Detail:
+      "2023-06-26: A13-L1,A13-L2,A13-L3,A13-L4,A13-L5,A13-L6,A13-L7,A13-L8,A13-L9,A13-L10,A13-L11,A13-L12</br>2023-06-27: A13-L1,A13-L2,A13-L3,A13-L4,A13-L5,A13-L6,A13-L7,A13-L8,A13-L9,A13-L10,A13-L11,A13-L12</br>2023-06-28: A13-L1,A13-L2,A13-L3,A13-L4,A13-L5,A13-L6,A13-L8,A13-L11,A13-L12</br>2023-06-29: A13-L1,A13-L2,A13-L3,A13-L4,A13-L5,A13-L6,A13-L10,A13-L11,A13-L12</br>2023-06-30: A13-L2,A13-L3,A13-L4,A13-L5,A13-L6,A13-L7,A13-L8,A13-L9,A13-L10,A13-L11</br>",
   },
   {
-    Quantity: 120,
-    TargetQuantity: 100,
-    Abnormal: "",
-    Overtime: "Không tăng ca",
-    Attandent: 35,
+    Group: "A15",
+    OK: 25,
+    NG: 40,
+    Rate: "38.46%",
+    Detail:
+      "2023-06-26: A15,A15-L1,A15-L3,A15-L4,A15-L5,A15-L6,A15-L7,A15-L8,A15-L9,A15-L11</br>2023-06-27: A15,A15-L1,A15-L3,A15-L5,A15-L6,A15-L10,A15-L12</br>2023-06-28: A15,A15-L1,A15-L4,A15-L5,A15-L6,A15-L8,A15-L9,A15-L11</br>2023-06-29: A15,A15-L1,A15-L3,A15-L4,A15-L5,A15-L6,A15-L8,A15-L9,A15-L10,A15-L11</br>2023-06-30: A15,A15-L2,A15-L4,A15-L8,A15-L9</br>",
   },
   {
-    Quantity: 90,
-    TargetQuantity: 150,
-    Abnormal: "",
-    Overtime: "Không tăng ca",
-    Attandent: 30,
+    Group: "A16",
+    OK: 17,
+    NG: 48,
+    Rate: "26.15%",
+    Detail:
+      "2023-06-26: A16-L2,A16-L3,A16-L4,A16-L5,A16-L6,A16-L7,A16-L8,A16-L9</br>2023-06-27: A16,A16-L2,A16-L3,A16-L6,A16-L7,A16-L8,A16-L9,A16-L10,A16-L11</br>2023-06-28: A16,A16-L2,A16-L3,A16-L4,A16-L5,A16-L6,A16-L7,A16-L8,A16-L10,A16-L11,A16-L12</br>2023-06-29: A16,A16-L2,A16-L3,A16-L4,A16-L5,A16-L6,A16-L7,A16-L8,A16-L9</br>2023-06-30: A16,A16-L2,A16-L3,A16-L4,A16-L6,A16-L7,A16-L8,A16-L9,A16-L10,A16-L11,A16-L12</br>",
   },
   {
-    Quantity: 100,
-    TargetQuantity: 150,
-    Abnormal: "",
-    Overtime: "Có tăng ca",
-    Attandent: 25,
-  },
-];
-
-const columns_data2 = [
-  {
-    dataField: "Quantity",
-    caption: "Sản lượng",
+    Group: "A19",
+    OK: 29,
+    NG: 46,
+    Rate: "38.67%",
+    Detail:
+      "2023-06-26: A19-L1,A19-L2,A19-L4,A19-L7,A19-L8,A19-L11,A19-L12,A19-L13,A19-L14</br>2023-06-27: A19,A19-L1,A19-L2,A19-L3,A19-L7,A19-L8,A19-L10,A19-L12,A19-L13,A19-L14</br>2023-06-28: A19,A19-L1,A19-L2,A19-L4,A19-L5,A19-L9,A19-L11,A19-L12,A19-L13,A19-L14</br>2023-06-29: A19,A19-L1,A19-L2,A19-L3,A19-L4,A19-L5,A19-L8,A19-L10,A19-L13,A19-L14</br>2023-06-30: A19-L2,A19-L5,A19-L6,A19-L9,A19-L10,A19-L13,A19-L14</br>",
   },
   {
-    dataField: "TargetQuantity",
-    caption: "Mục tiêu",
+    Group: "A20",
+    OK: 17,
+    NG: 58,
+    Rate: "22.67%",
+    Detail:
+      "2023-06-26: A20-L1,A20-L3,A20-L4,A20-L6,A20-L7,A20-L8,A20-L9,A20-L10,A20-L11,A20-L12,A20-L14</br>2023-06-27: A20,A20-L1,A20-L2,A20-L3,A20-L5,A20-L6,A20-L7,A20-L8,A20-L9,A20-L10,A20-L11,A20-L12,A20-L13</br>2023-06-28: A20,A20-L1,A20-L2,A20-L3,A20-L4,A20-L5,A20-L7,A20-L8,A20-L9,A20-L10,A20-L12,A20-L13</br>2023-06-29: A20-L1,A20-L2,A20-L3,A20-L6,A20-L7,A20-L10,A20-L11,A20-L12,A20-L13,A20-L14</br>2023-06-30: A20,A20-L2,A20-L3,A20-L4,A20-L5,A20-L6,A20-L7,A20-L10,A20-L11,A20-L12,A20-L13,A20-L14</br>",
   },
   {
-    dataField: "Efficiency",
-    caption: "Hiệu suất",
+    Group: "A21",
+    OK: 53,
+    NG: 22,
+    Rate: "70.67%",
+    Detail:
+      "2023-06-26: A21,A21-L5,A21-L7,A21-L14</br>2023-06-27: A21,A21-L5,A21-L7,A21-L14</br>2023-06-28: A21,A21-L5,A21-L7,A21-L14</br>2023-06-29: A21,A21-L5,A21-L6,A21-L7,A21-L10,A21-L14</br>2023-06-30: A21,A21-L7,A21-L10,A21-L14</br>",
   },
   {
-    dataField: "Abnomarl",
-    caption: "Bất thường",
+    Group: "A22",
+    OK: 60,
+    NG: 15,
+    Rate: "80%",
+    Detail:
+      "2023-06-26: A22-L2,A22-L7,A22-L12,A22-L14</br>2023-06-27: A22-L1,A22-L7</br>2023-06-28: A22-L2,A22-L7</br>2023-06-29: A22-L3,A22-L7</br>2023-06-30: A22,A22-L2,A22-L3,A22-L7,A22-L12</br>",
   },
   {
-    dataField: "Overtime",
-    caption: "Tăng ca",
+    Group: "A23",
+    OK: 16,
+    NG: 59,
+    Rate: "21.33%",
+    Detail:
+      "2023-06-26: A23,A23-L2,A23-L3,A23-L4,A23-L5,A23-L6,A23-L7,A23-L8,A23-L10,A23-L11,A23-L12,A23-L13,A23-L14</br>2023-06-27: A23,A23-L2,A23-L3,A23-L4,A23-L5,A23-L7,A23-L10,A23-L11,A23-L12,A23-L13,A23-L14</br>2023-06-28: A23,A23-L2,A23-L3,A23-L4,A23-L5,A23-L6,A23-L7,A23-L10,A23-L11,A23-L12,A23-L13,A23-L14</br>2023-06-29: A23,A23-L2,A23-L3,A23-L4,A23-L5,A23-L7,A23-L10,A23-L11,A23-L12,A23-L13,A23-L14</br>2023-06-30: A23,A23-L2,A23-L3,A23-L4,A23-L5,A23-L6,A23-L7,A23-L10,A23-L11,A23-L12,A23-L13,A23-L14</br>",
   },
   {
-    dataField: "Attandent",
-    caption: "Công nhân đi làm",
-  },
-];
-
-const grid2 = $("#grid2")
-  .dxDataGrid({
-    dataSource: description_data2,
-    columns: columns_data2,
-    showRowLines: true,
-    wordWrapEnabled: true,
-    onRowPrepared: function (e) {
-      if (e.rowType == "header") {
-        e.rowElement.css("background", colorHeader);
-        e.rowElement.css("font-family", fontText);
-        return;
-      }
-    },
-    onCellPrepared: function (e) {
-      e.cellElement.css("text-align", "center");
-      e.cellElement.css("vertical-align", "middle");
-      if (e.rowType == "header") {
-        e.cellElement.css("color", colorText);
-        e.cellElement.css("font-weight", "bold");
-        e.cellElement.css("border-color", colorBorder);
-      }
-      if (e.rowType == "data") {
-        e.cellElement.css("color", colorText);
-        e.cellElement.css("border-color", colorBorder);
-        e.cellElement.css("font-family", fontText);
-      }
-    },
-  })
-  .dxDataGrid("instance");
-
-const dataSource = [
-  {
-    Name: "Duy",
-    Quantity: 300,
+    Group: "A25",
+    OK: 4,
+    NG: 71,
+    Rate: "5.33%",
+    Detail:
+      "2023-06-26: A25,A25-L1,A25-L2,A25-L3,A25-L4,A25-L5,A25-L6,A25-L7,A25-L8,A25-L9,A25-L10,A25-L11,A25-L12,A25-L13,A25-L14</br>2023-06-27: A25-L1,A25-L2,A25-L3,A25-L4,A25-L5,A25-L6,A25-L7,A25-L8,A25-L9,A25-L10,A25-L11,A25-L12,A25-L13,A25-L14</br>2023-06-28: A25,A25-L1,A25-L2,A25-L3,A25-L4,A25-L5,A25-L6,A25-L7,A25-L8,A25-L9,A25-L10,A25-L11,A25-L12,A25-L13,A25-L14</br>2023-06-29: A25,A25-L1,A25-L3,A25-L4,A25-L5,A25-L6,A25-L7,A25-L8,A25-L9,A25-L10,A25-L11,A25-L12,A25-L13,A25-L14</br>2023-06-30: A25,A25-L1,A25-L3,A25-L4,A25-L5,A25-L6,A25-L7,A25-L9,A25-L10,A25-L11,A25-L12,A25-L13,A25-L14</br>",
   },
   {
-    Name: "Thanh",
-    Quantity: 200,
+    Group: "A26",
+    OK: 57,
+    NG: 18,
+    Rate: "76%",
+    Detail:
+      "2023-06-26: A26-L7,A26-L11,A26-L13,A26-L14</br>2023-06-27: A26,A26-L7,A26-L13,A26-L14</br>2023-06-28: A26-L7,A26-L13,A26-L14</br>2023-06-29: A26-L7,A26-L10,A26-L13,A26-L14</br>2023-06-30: A26-L7,A26-L13,A26-L14</br>",
   },
   {
-    Name: "Tùng",
-    Quantity: 150,
+    Group: "A27",
+    OK: 23,
+    NG: 52,
+    Rate: "30.67%",
+    Detail:
+      "2023-06-26: A27,A27-L1,A27-L5,A27-L7,A27-L8,A27-L10,A27-L11,A27-L13,A27-L14</br>2023-06-27: A27,A27-L1,A27-L2,A27-L3,A27-L4,A27-L5,A27-L7,A27-L8</br>2023-06-28: A27,A27-L1,A27-L2,A27-L3,A27-L4,A27-L5,A27-L6,A27-L8,A27-L9,A27-L10,A27-L11,A27-L13</br>2023-06-29: A27-L1,A27-L2,A27-L3,A27-L4,A27-L5,A27-L6,A27-L7,A27-L8,A27-L9,A27-L12,A27-L14</br>2023-06-30: A27,A27-L1,A27-L2,A27-L4,A27-L5,A27-L6,A27-L7,A27-L9,A27-L10,A27-L11,A27-L13,A27-L14</br>",
   },
   {
-    Name: "Hồng",
-    Quantity: 170,
-  },
-  {
-    Name: "Dương",
-    Quantity: 400,
-  },
-  {
-    Name: "Thắng",
-    Quantity: 450,
-  },
-  {
-    Name: "Hiếu",
-    Quantity: 210,
-  },
-  {
-    Name: "Dung",
-    Quantity: 200,
-  },
-  {
-    Name: "Tuyên",
-    Quantity: 130,
-  },
-  {
-    Name: "Hoàn",
-    Quantity: 170,
-  },
-  {
-    Name: "Hưng",
-    Quantity: 55,
-  },
-  {
-    Name: "Hoa",
-    Quantity: 600,
-  },
-  {
-    Name: "Loan",
-    Quantity: 800,
+    Group: "A28",
+    OK: 26,
+    NG: 49,
+    Rate: "34.67%",
+    Detail:
+      "2023-06-26: A28,A28-L2,A28-L3,A28-L5,A28-L7,A28-L8,A28-L13,A28-L14</br>2023-06-27: A28,A28-L3,A28-L4,A28-L5,A28-L8,A28-L12,A28-L13,A28-L14</br>2023-06-28: A28,A28-L1,A28-L3,A28-L4,A28-L5,A28-L12,A28-L13,A28-L14</br>2023-06-29: A28,A28-L2,A28-L4,A28-L5,A28-L6,A28-L7,A28-L8,A28-L9,A28-L10,A28-L11,A28-L12,A28-L13,A28-L14</br>2023-06-30: A28-L1,A28-L2,A28-L3,A28-L4,A28-L5,A28-L6,A28-L7,A28-L8,A28-L10,A28-L11,A28-L13,A28-L14</br>",
   },
 ];
 
-const grid3 = $("#grid3")
-  .dxChart({
-    dataSource: dataSource,
-    commonAxisSettings: {
-      //chỉnh độ sáng tối, màu sắc của dòng kẻ
-      grid: {
-        color: colorGrid,
-        opacity: "25%",
-      },
-    },
-    argumentAxis: {
-      //Chỉnh định dạng của chữ và giá trị của trục hoành
-      label: {
-        font: {
-          color: colorText,
-          family: fontText,
-        },
-      },
-    },
-    valueAxis: {
-      label: {
-        customizeText() {
-          return `${this.valueText}`;
-        },
-        font: {
-          //Chỉnh định dạng của trục tung
-          color: colorText,
-          family: fontText,
-        },
-      },
-    },
-    title: {
-      text: "Bảng sản lượng công nhân(VNA)",
-      font: {
-        family: fontText,
-        color: colorText,
-        size: 25,
-        weight: 600,
-      },
-    },
-    legend: {
-      //Chỉnh định dạng của ô ghi chú VNA,VND, VNC, VNE
-      visible: true,
-      horizontalAlignment: "center",
-      verticalAlignment: "bottom",
-      font: {
-        color: colorText,
-        family: fontText,
-      },
-      itemTextPosition: "right",
-      margin: {
-        top: 20,
-      },
-      markerSize: 20,
-    },
-    series: {
-      argumentField: "Name",
-      valueField: "Quantity",
-      name: "Quantity",
-      type: "bar",
-      color: "rgba(125, 239, 230, 0.8)",
-    },
-    size: {
-      height: 300,
-    },
-  })
-  .dxChart("instance");
+const listColumns = []; //Xong phần xử lý dữ liệu column
+const dataSource = []; //
 
-const dataPie = [
-  {
-    name: "Đi làm",
-    quantity: 7000,
-  },
-  {
-    name: "Không đi làm",
-    quantity: 3000,
-  },
-];
+let OK = {},
+  NG = {},
+  Rate = {},
+  Detail = {};
+OK["VNA"] = "OK";
+NG["VNA"] = "NG";
+Rate["VNA"] = "使用比例 - Tỷ lệ SD";
+Detail["VNA"] = "异常明细 - Chi tiết bất thường";
+$.each(data, (i, analyst) => {
+  let list = {};
+  list[`dataField`] = analyst.Group;
+  listColumns.push(list);
 
-const legendSettings = {
-  verticalAlignment: "bottom",
-  horizontalAlignment: "center",
-  itemTextPosition: "right",
-  visible: false,
-};
+  OK[`${analyst.Group}`] = analyst.OK;
+  NG[`${analyst.Group}`] = analyst.NG;
+  Rate[`${analyst.Group}`] = analyst.Rate;
+  Detail[`${analyst.Group}`] = analyst.Detail;
+});
 
-const seriesOptions = [
-  {
-    argumentField: "name",
-    valueField: "quantity",
-    label: {
-      visible: true,
-      connector: {
-        visible: true,
-      },
-      font: {
-        family: fontText,
-        color: colorText,
-        size: 15,
-      },
-      format: "fixedPoint",
-      backgroundColor: "none",
-      wordWrap: "breakWord",
-      customizeText(e) {
-        return `${e.argumentText}\n${e.valueText}`;
-      },
-    },
-  },
-];
-
-const grid4 = $("#grid4")
-  .dxPieChart({
-    // sizeGroup: sizeGroupName,
-    palette: colorPallete,
-    type: "doughnut",
-    title: {
-      text: "Bảng chấm công công nhân(VNA)",
-      font: {
-        family: fontText,
-        color: colorText,
-        size: 25,
-        weight: 600,
-      },
-    },
-    size: {
-      height: 300,
-      width: 440,
-    },
-    innerRadius: 0.48,
-    legend: legendSettings,
-    dataSource: dataPie,
-    series: seriesOptions,
-  })
-  .dxPieChart("instance");
+dataSource.push(...[OK], ...[NG], ...[Rate], ...[Detail]);
+console.log(listColumns);
+console.log(dataSource);

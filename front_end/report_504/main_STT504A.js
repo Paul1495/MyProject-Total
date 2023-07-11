@@ -190,6 +190,7 @@ const grid = $("#grid")
       ],
       //Set phần tính toán summary để được giá trị tính % tại 1 cột tỷ lệ chia theo grroup
       calculateCustomSummary(e) {
+        console.log(e);
         if (e.name == "SelectedEfficencySummary") {
           if (e.summaryProcess == "start") {
             e.samTotal = 0;

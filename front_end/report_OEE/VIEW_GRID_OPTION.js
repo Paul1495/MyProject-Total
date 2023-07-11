@@ -46,7 +46,7 @@ export const VIEW_GRID_OPTION = {
     scrollByContent: true,
   },
   headerFilter: {
-    visible: false,
+    visible: true,
   },
   editing: {
     mode: "row",

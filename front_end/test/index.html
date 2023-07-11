@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+   <p>The join() method in JavaScript:<br>
+      <div id="result"> </div>
+   </p>
+   <script>
+      function print(obj, separator) {
+         var text = Array.prototype.join.call(obj, separator)
+         document.getElementById("result").innerHTML = text;
+         console.log(text);
+      }
+      const obj = {
+         length: 4,
+         0: "first",
+         1: "second",
+         2: "third",
+         3: "fourth",
+      };
+      var separator = "<br>"
+      print(obj, separator)
+   </script>
+</body>
+</html>
