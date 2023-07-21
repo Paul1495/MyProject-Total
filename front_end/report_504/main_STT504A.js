@@ -261,3 +261,5 @@ const onCellPrepared = function (e) {
 };
 
 grid.option("onCellPrepared", onCellPrepared);
+
+console.log("Hello");

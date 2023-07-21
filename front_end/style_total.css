@@ -12,7 +12,7 @@
   --bs-border-radius: 4px;
 }
 
-/* Draw background */
+/* Vẽ phông nền đen xanh*/
 html {
   background: #111117;
   box-shadow: 0 0 300px rgba(0, 255, 255, 0.2) inset;
@@ -34,15 +34,6 @@ body {
 
 .dx-datagrid-headers .dx-header-row {
   background-color: transparent;
-}
-
-.first-floor {
-  margin: 1% 0 0 0;
-  text-align: center;
-}
-
-.second-floor {
-  margin: 1% 0 1.5% 0;
 }
 
 .card {
@@ -93,7 +84,7 @@ body {
   font-size: 120%;
 }
 
-/* Draw line on top and bottom */
+/* Vẽ đường kẻ đóng khung bên ngoài bên trên và bên dưới của bảng */
 .card.table:not(.border-0):before {
   left: 1.5%;
   right: 1.5%;
@@ -112,6 +103,7 @@ body {
   box-sizing: border-box;
 }
 
+/* Define bắt đầu vẽ các góc vuông */
 .card .card-arrow {
   position: absolute;
   top: 0;
@@ -129,7 +121,7 @@ body {
 }
 .card .card-arrow-top-left {
   /* width: 10px;
-  height: 10px; */
+    height: 10px; */
   position: absolute;
 }
 
@@ -284,6 +276,7 @@ body {
   background: rgba(var(--bs-border-color-rgb), 0.75);
 }
 
+/* Vẽ đường kẻ đóng khung bên ngoài bên trái và bên phải của bảng */
 .card.table:not(.border-0):after {
   top: 15px;
   bottom: 15px;
@@ -297,10 +290,7 @@ body {
   position: absolute;
 }
 
-#grid4 {
-  margin-left: -15%;
-}
-
+/* Vẽ circle hình tròn tự động xoay */
 .col-6 .circle {
   color: #7defe6;
   font-family: var(--font-text);
@@ -325,6 +315,7 @@ body {
   font-size: 320%;
 }
 
+/* Vẽ ảnh động đằng trước phông nền, bên dưới grid */
 #particles-js {
   width: 100%;
   height: 100%;
@@ -334,3 +325,124 @@ body {
   top: 0px;
   z-index: 1;
 }
+
+/* Bắt đầu - Vẽ phần button hiển thị  */
+a {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-text);
+}
+
+.grid-child3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+.grid-child3 .btn {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 130px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid-child3 .btn a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 400px;
+  z-index: 1;
+  transition: 0.5s;
+  backdrop-filter: blur(15px);
+}
+.grid-child3 .btn:hover a {
+  letter-spacing: 3px;
+}
+.grid-child3 .btn a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+  transform: skewX(45deg) translate(0);
+  transition: 0.5s;
+  filter: blur(0px);
+}
+.grid-child3 .btn:hover a::before {
+  transform: skewX(45deg) translate(200px);
+}
+.grid-child3 .btn::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
+  bottom: -5px;
+  width: 30px;
+  height: 10px;
+  background: #f00;
+  border-radius: 10px;
+  transition: 0.5s;
+  transition-delay: 0.5;
+}
+.grid-child3 .btn:hover::before /*lightup button*/ {
+  bottom: 0;
+  height: 50%;
+  width: 80%;
+  border-radius: 30px;
+}
+
+.grid-child3 .btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
+  top: -5px;
+  width: 30px;
+  height: 10px;
+  background: #f00;
+  border-radius: 10px;
+  transition: 0.5s;
+  transition-delay: 0.5;
+}
+.grid-child3 .btn:hover::after /*lightup button*/ {
+  top: 0;
+  height: 50%;
+  width: 80%;
+  border-radius: 30px;
+}
+
+.grid-child3 .btn:before, /*chnage 1*/
+    .grid-child3 .btn:after {
+  background: var(--color-default);
+  box-shadow: 0 0 5px var(--color-default), 0 0 15px var(--color-default),
+    0 0 30px var(--color-default), 0 0 60px var(--color-default);
+}
+.grid-child3 .btn:nth-child(2)::before, /* 2*/
+    .grid-child3 .btn:nth-child(2)::after {
+  background: var(--color-value);
+  box-shadow: 0 0 5px var(--color-value), 0 0 15px var(--color-value),
+    0 0 30px var(--color-value), 0 0 60px var(--color-value);
+}
+/* Kết thúc - Vẽ phần button hiển thị  */

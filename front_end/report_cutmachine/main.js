@@ -1,4 +1,4 @@
-$.getScript("/particles.js-master/particles.min.js", function () {
+$.getScript("./particles.min.js", function () {
   particlesJS("particles-js", {
     particles: {
       number: {

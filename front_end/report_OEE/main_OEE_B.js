@@ -1,21 +1,5 @@
 import { VIEW_GRID_OPTION } from "./VIEW_GRID_OPTION.js";
 
-const colorPalleteStopMachine = [
-  "#ED8830",
-  "#FFC100",
-  "#70AD46",
-  "#D5AB91",
-  "#BF8F00",
-  "#009900",
-];
-const colorPalleteStopMachineLine = [
-  "#FFC100",
-  "#70AD46",
-  "#9d480e",
-  "#BF8F00",
-  "#42682a",
-  "#f1975a",
-];
 const colorHeader = "#fff2cc";
 const colorText = "#000000";
 

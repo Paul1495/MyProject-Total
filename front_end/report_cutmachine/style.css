@@ -21,6 +21,8 @@ html {
 :root {
   --font-text: "ChakraPetch", sans-serif;
   --color-default: #7defe6;
+  --color-idle: rgba(255, 173, 11, 1);
+  --color-stopped: rgba(255, 0, 0, 1);
 }
 
 .content-header {
@@ -36,43 +38,57 @@ p {
   color: var(--color-default);
 }
 
+img {
+  width: 130px;
+  height: 130px;
+  margin-left: 6px;
+}
+
 .content-title {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 25px;
   display: flex;
   justify-content: center;
-  font-family: var(--font-text);
-  color: var(--color-default);
 }
 
 .content-body {
   font-size: 20px;
   display: flex;
   justify-content: center;
-  font-family: var(--font-text);
-  color: var(--color-default);
 }
 
 .grid-container {
   display: flex;
   height: 90%;
   width: 100%;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .child {
-  margin: 0 10px 0 10px;
+  display: flex;
+  flex-direction: column;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(125, 239, 230, 0.8);
   /* border-top: 1px solid rgba(255, 255, 255, 0.1); */
   border-radius: 5px;
-  flex-basis: 8.4%;
+  flex-basis: 7.5%;
+  justify-content: space-evenly;
+  font-family: var(--font-text);
+  color: var(--color-default);
 }
 
-img {
-  width: 130px;
-  height: 130px;
-  margin-left: 6px;
+.child:nth-child(2) {
+  border: 1px solid rgba(255, 173, 11, 0.8);
+  color: var(--color-idle);
+}
+
+.child:nth-child(8) {
+  border: 1px solid rgba(255, 0, 0, 0.8);
+  color: var(--color-stopped);
 }
 
 ::-webkit-scrollbar {

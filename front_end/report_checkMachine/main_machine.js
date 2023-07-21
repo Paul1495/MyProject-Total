@@ -53,6 +53,7 @@ const inputData = $("#inputData")
             editorOptions: {
               value: null,
               width: "90%",
+              max: new Date(),
             },
             validationRules: [
               {
@@ -70,6 +71,7 @@ const inputData = $("#inputData")
             editorOptions: {
               value: null,
               width: "90%",
+              max: new Date(),
             },
             validationRules: [
               {
@@ -122,6 +124,9 @@ const inputData = $("#inputData")
               width: "40%",
               type: "success",
               onClick: function () {
+                if (!$("#inputData").dxForm("instance").isValid) {
+                  return $("#inputData").dxForm("instance").validate();
+                }
                 console.log(inputData.option("formData"));
               },
             },

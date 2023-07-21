@@ -1,5 +1,4 @@
 export const VIEW_GRID_OPTION = {
-  dataSource: [],
   showRowLines: true,
   showColumnHeaders: true,
   showBorders: true,

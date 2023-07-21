@@ -124,12 +124,6 @@ const form = $("#form")
               searchEnabled: true,
               value: "",
             },
-            // validationRules: [
-            //   {
-            //     type: "required",
-            //     message: "Factory is required",
-            //   },
-            // ],
             label: {
               text: "线别Chuyền",
             },
@@ -639,42 +633,6 @@ const listColumsStopMachineLine = [
         ) / 100
       }%`;
     },
-  },
-];
-
-const listSummaryLine = [
-  {
-    column: "Line",
-    displayFormat: "Trung bình 平均",
-  },
-  {
-    column: "TimeStart",
-    summaryType: "custom",
-    displayFormat: "{0}",
-    // valueFormat: "#0.00%",
-    showInGroupFooter: false,
-    alignByColumn: true,
-  },
-  {
-    column: "TimeActive",
-    summaryType: "custom",
-    displayFormat: "{0}",
-    // valueFormat: "#0.00%",
-    showInGroupFooter: false,
-    alignByColumn: true,
-  },
-  {
-    column: "TimeStop",
-    summaryType: "custom",
-    displayFormat: "{0}",
-    // valueFormat: "#0.00%",
-    showInGroupFooter: false,
-    alignByColumn: true,
-  },
-  {
-    column: "RateDowntime",
-    summaryType: "sum",
-    displayFormat: "{0}",
   },
 ];
 
